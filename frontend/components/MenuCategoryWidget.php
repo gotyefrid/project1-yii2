@@ -16,9 +16,6 @@ class MenuCategoryWidget extends Widget
   public function init()
   {
     parent::init();
-    if ($this->ul_class === null) {
-      $this->ul_class = 'category';
-    }
     if ($this->tpl === null) {
       $this->tpl = 'category';
     }
@@ -29,7 +26,6 @@ class MenuCategoryWidget extends Widget
     $this->data = Category::find()->select('id, parent_id, title')->indexBy('id')->asArray()->all();
     $this->tree = $this->getTree();
     $this->menuhtml = $this->getMenuHtml($this->tree);
-    // printr($this->tree);
     return  $this->menuhtml;
   }
   protected function getTree()
@@ -44,18 +40,19 @@ class MenuCategoryWidget extends Widget
       }
     }
     return $tree;
- 
   }
-  protected function getMenuHtml($tree) {
+  protected function getMenuHtml($tree)
+  {
     $str = '';
     foreach ($tree as $category) {
       $str .= $this->catToTemplate($category);
     }
     return $str;
   }
-  protected function catToTemplate($category){
+  protected function catToTemplate($category)
+  {
     ob_start();
-    include __DIR__.'/menucategory_tpl/' . $this->tpl;
+    include __DIR__ . '/menucategory_tpl/' . $this->tpl;
     return ob_get_clean();
   }
 }

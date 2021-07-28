@@ -4,12 +4,9 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use common\widgets\Alert;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\components\MenuCategoryWidget;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -59,7 +56,7 @@ AppAsset::register($this);
         </div><!-- bg-191 -->
 
         <div class="container">
-            <a class="logo" href="index.html"><img src="images/logo-black.png" alt="Logo"></a>
+            <a class="logo" href="<?=Url::home()?>"><img src="images/logo-black.png" alt="Logo"></a>
 
             <!-- <a class="right-area src-btn" href="#">
                 <i class="active src-icn ion-search"></i>
