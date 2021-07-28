@@ -2,8 +2,9 @@
 
 namespace frontend\components;
 
-use frontend\models\Category;
+use Yii;
 use yii\base\Widget;
+use frontend\models\Category;
 
 class MenuCategoryWidget extends Widget
 {
@@ -23,9 +24,17 @@ class MenuCategoryWidget extends Widget
   }
   public function run()
   {
+    //Получение данных из кэша
+    $menu = Yii::$app->cache->get('category');
+    if ($menu) {
+      return $menu;
+    }
     $this->data = Category::find()->select('id, parent_id, title')->indexBy('id')->asArray()->all();
     $this->tree = $this->getTree();
     $this->menuhtml = $this->getMenuHtml($this->tree);
+    // Устанавливаем кэш
+    Yii::$app->cache->set('category', $this->menuhtml, 10);
+
     return  $this->menuhtml;
   }
   protected function getTree()

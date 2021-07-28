@@ -56,7 +56,7 @@ AppAsset::register($this);
         </div><!-- bg-191 -->
 
         <div class="container">
-            <a class="logo" href="<?=Url::home()?>"><img src="images/logo-black.png" alt="Logo"></a>
+            <a class="logo" href="<?= Url::home() ?>"><img src="images/logo-black.png" alt="Logo"></a>
 
             <!-- <a class="right-area src-btn" href="#">
                 <i class="active src-icn ion-search"></i>
@@ -76,13 +76,13 @@ AppAsset::register($this);
                 <li class="drop-down"><a href="03_single-post.html">CATEGORIES<i class="ion-arrow-down-b"></i></a>
                     <ul class="drop-down-menu drop-down-inner">
                         <?= MenuCategoryWidget::widget([
-                            'tpl' => 'menucategory',
-                            'ul_class' => 'nav nav-tabs',
+                            'tpl' => 'menucategory'
                         ]) ?>
                     </ul>
                 </li>
-                <!-- <li><a href="04_FAQS.html">EVENTS</a></li>
-                <li><a href="05_FAQS-single.html">EXPLAINED</a></li>
+
+                
+                <!-- <li><a href="05_FAQS-single.html">EXPLAINED</a></li>
                 <li><a href="06_contact-us.html">ICON CLAENDER</a></li> -->
             </ul>
             <div class="clearfix"></div>
