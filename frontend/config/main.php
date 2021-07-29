@@ -38,14 +38,15 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'app/error',
         ],
         
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'category/<id:\d+>' =>  'category/view'
+                'category/<id:\d+>' =>  'category/view',
+                'article/<id:\d+>' => 'article/view'
             ],
         ],
         

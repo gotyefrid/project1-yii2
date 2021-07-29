@@ -5,7 +5,7 @@
 			<?php foreach ($toparticles as $toparticle) : ?>
 				<?php if ($toparticle->top == 'top-1') : ?>
 					<div class="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x">
-						<a class="pos-relative h-100 dplay-block" href="#">
+						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
 
 							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("images/{$toparticle->img}") ?>) no-repeat center; background-size: cover;"></div>
 
@@ -27,7 +27,7 @@
 						<?php foreach ($toparticles as $toparticle) : ?>
 							<?php if ($toparticle->top == 'top-2' or $toparticle->top == 'top-3') : ?>
 								<div class="pl-5 pb-5 pl-sm-0 ptb-sm-5 pos-relative h-50">
-									<a class="pos-relative h-100 dplay-block" href="#">
+									<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
 
 										<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("images/{$toparticle->img}") ?>) no-repeat center; background-size: cover;"></div>
 
@@ -53,7 +53,7 @@
 			foreach ($toparticles as $toparticle) : ?>
 				<?php if ($toparticle->top == 'undertop') : ?>
 					<div class="pr-5 pr-sm-0 pt-5 float-left float-sm-none pos-relative w-1-3 w-sm-100 h-100 h-sm-300x">
-						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['toparticle/view', 'id' => $toparticle->id]) ?>">
+						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
 
 							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("images/{$toparticle->img}") ?>) no-repeat center;
     background-size: cover;"></div>
@@ -89,8 +89,8 @@
 				<div class="row">
 					<?php foreach ($recentarticles as $recentarticle) : ?>
 						<div class="col-sm-6">
-							<img src="<?=($recentarticle->img == '') ? \yii\helpers\Url::to("images/no-image.jpg") : \yii\helpers\Url::to("images/{$recentarticle->img}")?>" alt="">
-							<h4 class="pt-20"><a href="#"><b><?= $recentarticle->title ?></b></a></h4>
+							<img src="<?= ($recentarticle->img == '') ? \yii\helpers\Url::to("images/no-image.jpg") : \yii\helpers\Url::to("images/{$recentarticle->img}") ?>" alt="">
+							<h4 class="pt-20"><a href="<?= \yii\helpers\Url::to(['article/view', 'id' => $recentarticle->id]) ?>"><b><?= $recentarticle->title ?></b></a></h4>
 							<ul class="list-li-mr-20 pt-10 mb-30">
 								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
 									Jan 25, 2018</li>
@@ -115,42 +115,7 @@
 						<li><b>1 DAS = $13,2323</b></li>
 						<li><b>1 BCC = $13,2323</b></li>
 					</ul>
-
-					<div class="mtb-50">
-						<h4 class="p-title"><b>POPULAR POSTS</b></h4>
-						<a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-							<div class="wh-100x abs-tlr"><img src="images/polular-1-100x100.jpg" alt=""></div>
-							<div class="ml-120 min-h-100x">
-								<h5><b>Bitcoin Billionares Hidding in Plain Sight</b></h5>
-								<h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-							</div>
-						</a><!-- oflow-hidden -->
-
-						<a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-							<div class="wh-100x abs-tlr"><img src="images/polular-2-100x100.jpg" alt=""></div>
-							<div class="ml-120 min-h-100x">
-								<h5><b>Bitcoin Billionares Hidding in Plain Sight</b></h5>
-								<h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-							</div>
-						</a><!-- oflow-hidden -->
-
-						<a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-							<div class="wh-100x abs-tlr"><img src="images/polular-3-100x100.jpg" alt=""></div>
-							<div class="ml-120 min-h-100x">
-								<h5><b>Bitcoin Billionares Hidding in Plain Sight</b></h5>
-								<h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-							</div>
-						</a><!-- oflow-hidden -->
-
-						<a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-							<div class="wh-100x abs-tlr"><img src="images/polular-4-100x100.jpg" alt=""></div>
-							<div class="ml-120 min-h-100x">
-								<h5><b>Bitcoin Billionares Hidding in Plain Sight</b></h5>
-								<h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-							</div>
-						</a><!-- oflow-hidden -->
-
-					</div><!-- mtb-50 -->
+					<?= $this->render('//layouts/popularpart/sidebar')   ?>   
 
 					<div class="mtb-50 pos-relative">
 						<img src="images/banner-1-600x450.jpg" alt="">

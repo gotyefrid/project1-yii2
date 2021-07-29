@@ -56,7 +56,7 @@ AppAsset::register($this);
         </div><!-- bg-191 -->
 
         <div class="container">
-            <a class="logo" href="<?= Url::home() ?>"><img src="images/logo-black.png" alt="Logo"></a>
+            <a class="logo" href="<?= Url::home() ?>"><img src="/images/logo-black.png" alt="Logo"></a>
 
             <!-- <a class="right-area src-btn" href="#">
                 <i class="active src-icn ion-search"></i>
@@ -73,7 +73,7 @@ AppAsset::register($this);
 
             <ul class="main-menu" id="main-menu">
                 <li><a href="02_archive-page.html">NEWS</a></li>
-                <li class="drop-down"><a href="03_single-post.html">CATEGORIES<i class="ion-arrow-down-b"></i></a>
+                <li class="drop-down"><a href="#">CATEGORIES<i class="ion-arrow-down-b"></i></a>
                     <ul class="drop-down-menu drop-down-inner">
                         <?= MenuCategoryWidget::widget([
                             'tpl' => 'menucategory'
@@ -89,7 +89,7 @@ AppAsset::register($this);
         </div><!-- container -->
     </header>
 
-
+                      
     <?= $content ?>
 
 
@@ -98,13 +98,13 @@ AppAsset::register($this);
         <div class="container">
             <div class="pt-50 pb-20 pos-relative">
                 <div class="abs-tblr pt-50 z--1 text-center">
-                    <div class="h-80 pos-relative"><img class="opacty-1 h-100 w-auto" src="images/map.png" alt=""></div>
+                    <div class="h-80 pos-relative"><img class="opacty-1 h-100 w-auto" src="/images/map.png" alt=""></div>
                 </div>
                 <div class="row">
 
                     <div class="col-sm-4">
                         <div class="mb-30">
-                            <a href="#"><img src="images/logo-white.png"></a>
+                            <a href="#"><img src="/images/logo-white.png"></a>
                             <p class="mtb-20 color-ccc">Bit coin is an open-source, peer-to-peer, digital decentralized cryptocurrency.
                                 Powered by blockchain technology, its defining characteristic is</p>
                             <p class="color-ash">Copyright &copy;<script>

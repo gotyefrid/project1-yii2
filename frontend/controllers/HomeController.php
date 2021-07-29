@@ -9,9 +9,10 @@ class HomeController extends AppController
 
   public function actionIndex()
   {
-    $toparticles = Article::find()->where(['<>', 'top', 'null'])->all();
+    $toparticles = Article::find()->where(['<>', 'top', '0'])->all();
     $recentarticles = Article::find()->where(['=', 'top', '0'])->orderBy(['time' => SORT_DESC])->all();
-    return $this->render('index', compact('toparticles', 'recentarticles'));
+    $populararticles = Article::find()->where(['<>', 'top', '0'])->limit(3)->all();
+    return $this->render('index', compact('toparticles', 'recentarticles', 'populararticles'));
   }
 
 }

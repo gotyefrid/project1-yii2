@@ -6,7 +6,14 @@ use yii\web\Controller;
 
 class AppController extends Controller 
 {
-
+  public function actions()
+  {
+      return [
+          'error' => [
+              'class' => 'yii\web\ErrorAction',
+          ],
+      ];
+  }
   public function beforeAction($action)
   {
      $this->view->title = Yii::$app->name;
