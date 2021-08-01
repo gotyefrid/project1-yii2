@@ -1,4 +1,4 @@
-<!-- <?php printr($recentarticles); ?> -->
+
 <div class="container">
 	<div class="h-600x h-sm-auto">
 		<div class="h-2-3 h-sm-auto oflow-hidden">
@@ -7,7 +7,7 @@
 					<div class="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x">
 						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
 
-							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("images/{$toparticle->img}") ?>) no-repeat center; background-size: cover;"></div>
+							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$toparticle->imgPreview}") ?>) no-repeat center; background-size: cover;"></div>
 
 							<div class="abs-blr color-white p-20 bg-sm-color-7">
 								<h3 class="mb-15 mb-sm-5 font-sm-13"><b><?= $toparticle->title ?></b></h3>
@@ -29,7 +29,7 @@
 								<div class="pl-5 pb-5 pl-sm-0 ptb-sm-5 pos-relative h-50">
 									<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
 
-										<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("images/{$toparticle->img}") ?>) no-repeat center; background-size: cover;"></div>
+										<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$toparticle->imgPreview}") ?>) no-repeat center; background-size: cover;"></div>
 
 										<div class="abs-blr color-white p-20 bg-sm-color-7">
 											<h4 class="mb-10 mb-sm-5"><b><?= $toparticle->title ?></b></h4>
@@ -55,7 +55,7 @@
 					<div class="pr-5 pr-sm-0 pt-5 float-left float-sm-none pos-relative w-1-3 w-sm-100 h-100 h-sm-300x">
 						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
 
-							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("images/{$toparticle->img}") ?>) no-repeat center;
+							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$toparticle->imgPreview}") ?>) no-repeat center;
     background-size: cover;"></div>
 
 							<div class="abs-blr color-white p-20 bg-sm-color-7">
@@ -85,11 +85,11 @@
 			<div class="col-md-12 col-lg-8">
 
 
-				<h4 class="p-title mt-30"><b>RECENT NEWS</b></h4>
+				<h4 class="p-title mt-30"><b><?=Yii::t('common', 'RECENT NEWS')?></b></h4>
 				<div class="row">
 					<?php foreach ($recentarticles as $recentarticle) : ?>
 						<div class="col-sm-6">
-							<img src="<?= ($recentarticle->img == '') ? \yii\helpers\Url::to("images/no-image.jpg") : \yii\helpers\Url::to("images/{$recentarticle->img}") ?>" alt="">
+							<img src="<?= ($recentarticle->imgPreview == '') ? \yii\helpers\Url::to("/images/no-image.jpg") : \yii\helpers\Url::to("/images/{$recentarticle->imgPreview}") ?>" alt="">
 							<h4 class="pt-20"><a href="<?= \yii\helpers\Url::to(['article/view', 'id' => $recentarticle->id]) ?>"><b><?= $recentarticle->title ?></b></a></h4>
 							<ul class="list-li-mr-20 pt-10 mb-30">
 								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
@@ -118,7 +118,7 @@
 					<?= $this->render('//layouts/popularpart/sidebar')   ?>   
 
 					<div class="mtb-50 pos-relative">
-						<img src="images/banner-1-600x450.jpg" alt="">
+						<img src="/images/banner-1-600x450.jpg" alt="">
 						<div class="abs-tblr bg-layer-7 text-center color-white">
 							<div class="dplay-tbl">
 								<div class="dplay-tbl-cell">

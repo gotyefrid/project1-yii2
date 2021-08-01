@@ -2,5 +2,7 @@
 
 return [
   'CATEGORIES' => 'CATEGORIE',
-  'NEWS' => 'NOTIZIA'
+  'NEWS' => 'NOTIZIA',
+  'POPULAR POSTS' => 'POST POPOLARI',
+  'RECENT NEWS' => 'NOTIZIE RECENTI',
 ];

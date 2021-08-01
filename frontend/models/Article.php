@@ -11,4 +11,8 @@ class Article extends ActiveRecord
   {
     return 'articles';
   }
+  public function getCategory()
+  {
+    return $this->hasOne(Category::class, ['id' => 'category_id']);
+  }
 }

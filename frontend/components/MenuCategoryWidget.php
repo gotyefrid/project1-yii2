@@ -5,7 +5,6 @@ namespace frontend\components;
 use Yii;
 use yii\base\Widget;
 use frontend\models\Category;
-use frontend\models\CategoryIt;
 
 class MenuCategoryWidget extends Widget
 {
@@ -30,11 +29,8 @@ class MenuCategoryWidget extends Widget
     if ($menu) {
       return $menu;
     }
-    if (Yii::$app->language == "it"){
-    $this->data = CategoryIt::find()->select('id, parent_id, title')->indexBy('id')->asArray()->all();
-  } else {
-    $this->data = Category::find()->select('id, parent_id, title')->indexBy('id')->asArray()->all();
-  }
+    $this->data = Category::find()->select('id, language, parent_id, title')->where(['language'=> Yii::$app->language])->indexBy('id')->asArray()->all();
+  
     $this->tree = $this->getTree();
     $this->menuhtml = $this->getMenuHtml($this->tree);
     // Устанавливаем кэш

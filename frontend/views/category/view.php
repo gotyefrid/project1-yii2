@@ -22,7 +22,7 @@ use yii\widgets\LinkPager;
 				<div class="row">
 					<?php foreach ($articles as $article) : ?>
 						<div class="col-sm-6">
-							<a href="<?= Url::to(['article/view', 'id' => $article->id]) ?>"><img src="<?= Url::to("/images/{$article->img}") ?>" alt="">
+							<a href="<?= Url::to(['article/view', 'id' => $article->id]) ?>"><img src="<?= Url::to("/images/{$article->imgPreview}") ?>" alt="">
 								<h4 class="pt-20"><b><?= $article->title ?></b></h4>
 							</a>
 							<ul class="list-li-mr-20 pt-10 mb-30">
