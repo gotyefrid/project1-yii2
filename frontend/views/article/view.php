@@ -17,7 +17,7 @@ use yii\helpers\Url;
 			
 				<div class="col-md-12 col-lg-8">
 					<img src="/images/slider-1-1200x900.jpg" alt="">
-					<h3 class="mt-30"><b>Peter Thiels VC Found Invests Million into Bitcoin, Market Reacts</b></h3>
+					<h3 class="mt-30"><b><?=$article->fullTitle?></b></h3>
 					<ul class="list-li-mr-20 mtb-15">
 						<li>by <a href="#"><b>Olivia Capzallo </b></a> Jan 25, 2018</li>
 						<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
