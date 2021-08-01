@@ -12,6 +12,10 @@ class AppController extends Controller
           'error' => [
               'class' => 'yii\web\ErrorAction',
           ],
+          'page' => [
+            'class' => \yii\web\ViewAction::className(),
+            'viewPrefix' => 'pages/' . \Yii::$app->language
+        ]
       ];
   }
   public function beforeAction($action)
@@ -20,4 +24,10 @@ class AppController extends Controller
     return parent::beforeAction($action);
   } 
 
+protected function setMeta($title = null, $keywords = null, $description = null)
+{
+  $this->view->title = $title;
+  $this->view->registerMetaTag(['name' => 'keywords', 'content' => "$keywords"]);
+  $this->view->registerMetaTag(['name' => 'description', 'content' => "$description"]);
+}
 }

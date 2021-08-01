@@ -1,13 +1,14 @@
 <?php
 
 use yii\helpers\Url;
+use yii\widgets\LinkPager;
 
 ?>
 <section class="ptb-0">
 	<div class="mb-30 brdr-ash-1 opacty-5"></div>
 	<div class="container">
-		<a class="mt-10" href="index.html"><i class="mr-5 ion-ios-home"></i>Home<i class="mlr-10 ion-chevron-right"></i></a>
-		<a class="mt-10 color-ash" href="archive-page.html">Blog Archive</a>
+		<a class="mt-10" href="<?=url::home()?>"><i class="mr-5 ion-ios-home"></i>Home<i class="mlr-10 ion-chevron-right"></i></a>
+		<a class="mt-10 color-ash" href="<?=Url::to(['category/view', 'id' => $category->id])?>"><?=$category->title?></a>
 	</div><!-- container -->
 </section>
 
@@ -32,6 +33,11 @@ use yii\helpers\Url;
 							</ul>
 						</div><!-- col-sm-6 -->
 					<?php endforeach; ?>
+					<div class="col-md-12" style="text-align: center;">
+						<?=LinkPager::widget([
+							'pagination' => $pages
+						])?>
+					</div>
 				</div><!-- row -->
 
 				<a class="dplay-block btn-brdr-primary mt-20 mb-md-50" href="#"><b>LOAD MORE</b></a>

@@ -72,8 +72,8 @@ AppAsset::register($this);
             <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
 
             <ul class="main-menu" id="main-menu">
-                <li><a href="02_archive-page.html">NEWS</a></li>
-                <li class="drop-down"><a href="#">CATEGORIES<i class="ion-arrow-down-b"></i></a>
+                <li><a href="02_archive-page.html"><?=Yii::t('common', 'NEWS')?></a></li>
+                <li class="drop-down"><a href="#"><?=Yii::t('common', 'CATEGORIES')?><i class="ion-arrow-down-b"></i></a>
                     <ul class="drop-down-menu drop-down-inner">
                         <?= MenuCategoryWidget::widget([
                             'tpl' => 'menucategory'

@@ -2,8 +2,10 @@
 
 namespace frontend\controllers;
 
+use Yii;
 use frontend\models\Article;
 use frontend\models\Category;
+use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 
 class CategoryController extends AppController
@@ -15,8 +17,12 @@ class CategoryController extends AppController
     if (empty($category)){
       throw new NotFoundHttpException('There is no category!');
     }
-    $articles = Article::find()->where(['category_id' => $id])->all();
-    return $this->render('view', compact('articles', 'category'));
+    $this->setMeta("{$category->title} :: ".Yii::$app->name, $category->keywords, $category->description);
+    //$articles = Article::find()->where(['category_id' => $id])->all();
+    $queryart = Article::find()->where(['category_id' => $id]);
+    $pages = new Pagination(['totalCount' => $queryart->count(), 'pageSize' => 1]);
+    $articles = $queryart->offset($pages->offset)->limit($pages->limit)->all();
+    return $this->render('view', compact('articles', 'category', 'pages'));
   }
 
 }

@@ -11,7 +11,8 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'home/index',
-    'language' => 'en-EN',
+    'language' => 'en',
+    'sourceLanguage' => 'en',
     'layout' => 'template',
     'name' => 'Multi-Article',
     'controllerNamespace' => 'frontend\controllers',
@@ -42,11 +43,22 @@ return [
         ],
         
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en', 'it', 'es'],
+            'enableDefaultLanguageUrlCode' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 'category/<id:\d+>' =>  'category/view',
                 'article/<id:\d+>' => 'article/view'
+            ],
+        ],
+        'i18n' => [
+            'translations' => [
+                'common*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
             ],
         ],
         
