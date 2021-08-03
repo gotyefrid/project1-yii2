@@ -29,6 +29,8 @@ use frontend\components\SidebarPopularArticles;
 							<ul class="list-li-mr-20 pt-10 mb-30">
 								<li class="color-lite-black">by <a href="#" class="color-black"><b><?= $article->author ?></b></a>
 								<?= dateArticle($article->time) ?></li>
+
+								
 								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
 							</ul>
 						</div><!-- col-sm-6 -->
