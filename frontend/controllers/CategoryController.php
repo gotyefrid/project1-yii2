@@ -20,7 +20,7 @@ class CategoryController extends AppController
     $this->setMeta("{$category->title} :: ".Yii::$app->name, $category->keywords, $category->description);
     //$articles = Article::find()->where(['category_id' => $id])->all();
     $queryart = Article::find()->where(['category_id' => $id]);
-    $pages = new Pagination(['totalCount' => $queryart->count(), 'pageSize' => 1, 'pageSizeParam' => false, 'forcePageParam' => false]);
+    $pages = new Pagination(['totalCount' => $queryart->count(), 'pageSize' => 2, 'pageSizeParam' => false, 'forcePageParam' => false]);
     $articles = $queryart->offset($pages->offset)->limit($pages->limit)->all();
     return $this->render('view', compact('articles', 'category', 'pages'));
   }

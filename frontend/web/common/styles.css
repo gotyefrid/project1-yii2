@@ -367,8 +367,9 @@ header .main-menu li.drop-down a.mouseover + ul.drop-down-menu{ display: block;
 
 /* BACKGROUND IMAGE */
 :root {
-  --main-bg-radius: 5px;
+  --main-bg-radius: 1.25rem;
 }
+.melrounded{ border-radius: var(--main-bg-radius); }
 .img-bg{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; border-radius: var(--main-bg-radius);}
 
 .bg-map{ background: url(../images/map.png) no-repeat center; background-size: cover; }
@@ -1973,3 +1974,28 @@ section{ padding: 50px 0; }
   margin-top: -1px;
 }
 
+.page-link-mel {
+	position: relative;
+	display: block;
+	color: #000000;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #f9b500;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.page-item.active .page-link-mel {
+	z-index: 3;
+	color: #000;
+	background-color: #f9b500;
+	border-color: #f9b500;
+}
+.pagination-melsize .page-link-mel {
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+}
+.page-item.disabled .page-link-mel {
+	color: #6c757d;
+	pointer-events: none;
+	background-color: #fff;
+	border-color: #ffe59e;
+}

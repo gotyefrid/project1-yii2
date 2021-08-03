@@ -17,7 +17,7 @@ class SidebarPopularArticles extends Widget
   {
     parent::init();
     if ($this->tpl === null) {
-      $this->tpl = 'articles';
+      $this->tpl = 'sidebarpopularmenu';
     }
     $this->tpl .= '.php';
   }
@@ -28,11 +28,11 @@ class SidebarPopularArticles extends Widget
     if ($menu) {
       return $menu;
     }
-    $this->data = Article::find()->where(['<>', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->indexBy('id')->asArray()->limit(3)->all();
+    $this->data = Article::find()->where(['=', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->indexBy('id')->asArray()->limit(3)->all();
     $this->tree = $this->data;
     $this->menuhtml = $this->getMenuHtml($this->tree);
     // Устанавливаем кэш
-    Yii::$app->cache->set('poparticles', $this->menuhtml, 10);
+    Yii::$app->cache->set('poparticles', $this->menuhtml, 1);
 
     return  $this->menuhtml;
   }

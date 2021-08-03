@@ -1,20 +1,22 @@
+<?php
 
+use frontend\components\SidebarPopularArticles;
+
+?>
 <div class="container">
 	<div class="h-600x h-sm-auto">
 		<div class="h-2-3 h-sm-auto oflow-hidden">
-			<?php foreach ($toparticles as $toparticle) : ?>
-				<?php if ($toparticle->top == 'top-1') : ?>
+			<?php foreach ($articles as $article) : ?>
+				<?php if ($article->top == 'top-1') : ?>
 					<div class="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x">
-						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
+						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $article->id]) ?>">
 
-							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$toparticle->imgPreview}") ?>) no-repeat center; background-size: cover;"></div>
+							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$article->imgPreview}") ?>) no-repeat center; background-size: cover;"></div>
 
-							<div class="abs-blr color-white p-20 bg-sm-color-7">
-								<h3 class="mb-15 mb-sm-5 font-sm-13"><b><?= $toparticle->title ?></b></h3>
+							<div class="abs-blr color-white p-20 bg-sm-color-7 melrounded">
+								<h3 class="mb-15 mb-sm-5 font-sm-13"><b><?= $article->title ?></b></h3>
 								<ul class="list-li-mr-20">
-									<li>by <span class="color-primary"><b>Olivia Capzallo</b></span> Jan 25, 2018</li>
-									<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-									<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
+									<li>by <span class="color-primary"><b><?= $article->author ?></b></span> <?= dateArticle($article->time) ?></li>
 								</ul>
 							</div>
 							<!--abs-blr -->
@@ -24,19 +26,17 @@
 					</div><!-- w-1-3 -->
 
 					<div class="float-left float-sm-none w-1-3 w-sm-100 h-100 h-sm-600x">
-						<?php foreach ($toparticles as $toparticle) : ?>
-							<?php if ($toparticle->top == 'top-2' or $toparticle->top == 'top-3') : ?>
+						<?php foreach ($articles as $article) : ?>
+							<?php if ($article->top == 'top-2' or $article->top == 'top-3') : ?>
 								<div class="pl-5 pb-5 pl-sm-0 ptb-sm-5 pos-relative h-50">
-									<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
+									<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $article->id]) ?>">
 
-										<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$toparticle->imgPreview}") ?>) no-repeat center; background-size: cover;"></div>
+										<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$article->imgPreview}") ?>) no-repeat center; background-size: cover;"></div>
 
-										<div class="abs-blr color-white p-20 bg-sm-color-7">
-											<h4 class="mb-10 mb-sm-5"><b><?= $toparticle->title ?></b></h4>
+										<div class="abs-blr color-white p-20 bg-sm-color-7 melrounded">
+											<h4 class="mb-10 mb-sm-5"><b><?= $article->title ?></b></h4>
 											<ul class="list-li-mr-20">
-												<li>Jan 25, 2018</li>
-												<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-												<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
+												<li> <?= dateArticle($article->time) ?></li>
 											</ul>
 										</div>
 										<!--abs-blr -->
@@ -50,20 +50,18 @@
 		</div><!-- h-2-3 -->
 		<div class="h-1-3 oflow-hidden">
 			<?php
-			foreach ($toparticles as $toparticle) : ?>
-				<?php if ($toparticle->top == 'undertop') : ?>
+			foreach ($articles as $article) : ?>
+				<?php if ($article->top == 'undertop') : ?>
 					<div class="pr-5 pr-sm-0 pt-5 float-left float-sm-none pos-relative w-1-3 w-sm-100 h-100 h-sm-300x">
-						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $toparticle->id]) ?>">
+						<a class="pos-relative h-100 dplay-block" href="<?= \yii\helpers\Url::to(['article/view', 'id' => $article->id]) ?>">
 
-							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$toparticle->imgPreview}") ?>) no-repeat center;
+							<div class="img-bg bg-grad-layer-6" style="background: url(<?= \yii\helpers\Url::to("/images/{$article->imgPreview}") ?>) no-repeat center;
     background-size: cover;"></div>
 
-							<div class="abs-blr color-white p-20 bg-sm-color-7">
-								<h4 class="mb-10 mb-sm-5"><b><?= $toparticle->title ?></b></h4>
+							<div class="abs-blr color-white p-20 bg-sm-color-7 melrounded">
+								<h4 class="mb-10 mb-sm-5"><b><?= $article->title ?></b></h4>
 								<ul class="list-li-mr-20">
-									<li>Jan 25, 2018</li>
-									<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-									<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
+									<li> <?= dateArticle($article->time) ?></li>
 								</ul>
 							</div>
 							<!--abs-blr -->
@@ -85,20 +83,18 @@
 			<div class="col-md-12 col-lg-8">
 
 
-				<h4 class="p-title mt-30"><b><?=Yii::t('common', 'RECENT NEWS')?></b></h4>
+				<h4 class="p-title mt-30"><b><?= Yii::t('common', 'RECENT NEWS') ?></b></h4>
 				<div class="row">
-					<?php foreach ($recentarticles as $recentarticle) : ?>
+					<?php for ($i = 0; $i <= 3; $i++) : ?>
 						<div class="col-sm-6">
-							<img src="<?= ($recentarticle->imgPreview == '') ? \yii\helpers\Url::to("/images/no-image.jpg") : \yii\helpers\Url::to("/images/{$recentarticle->imgPreview}") ?>" alt="">
-							<h4 class="pt-20"><a href="<?= \yii\helpers\Url::to(['article/view', 'id' => $recentarticle->id]) ?>"><b><?= $recentarticle->title ?></b></a></h4>
+							<img class="melrounded" src="<?= ($articles[$i]->imgPreview == '') ? \yii\helpers\Url::to("/images/no-image.jpg") : \yii\helpers\Url::to("/images/{$articles[$i]->imgPreview}") ?>" alt="">
+							<h4 class="pt-20"><a href="<?= \yii\helpers\Url::to(['article/view', 'id' => $articles[$i]->id]) ?>"><b><?= $articles[$i]->title ?></b></a></h4>
 							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-									Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
+								<li class="color-lite-black">by <a href="#" class="color-black"><b><?= $articles[$i]->author ?></b></a>
+									<?= dateArticle($articles[$i]->time) ?></li>
 							</ul>
 						</div><!-- col-sm-6 -->
-					<?php endforeach; ?>
+					<?php endfor; ?>
 				</div><!-- row -->
 
 				<a class="dplay-block btn-brdr-primary mt-20 mb-md-50" href="#"><b>VIEW MORE CRYPTO MINING EVENTS</b></a>
@@ -107,16 +103,12 @@
 			<div class="d-none d-md-block d-lg-none col-md-3"></div>
 			<div class="col-md-6 col-lg-4">
 				<div class="pl-20 pl-md-0">
-					<ul class="list-block list-li-ptb-15 list-btm-border-white bg-primary text-center">
-						<li><b>1 BTC = $13,2323</b></li>
-						<li><b>1 BCH = $13,2323</b></li>
-						<li><b>1 ETH = $13,2323</b></li>
-						<li><b>1 LTC = $13,2323</b></li>
-						<li><b>1 DAS = $13,2323</b></li>
-						<li><b>1 BCC = $13,2323</b></li>
-					</ul>
-					<?= $this->render('//layouts/popularpart/sidebar')   ?>   
-
+					<div class="mtb-30">
+						<h4 class="p-title"><b><?= Yii::t('common', 'POPULAR POSTS') ?></b></h4>
+						<?= SidebarPopularArticles::widget([
+							'tpl' => 'sidebarpopularmenu'
+						]) ?>
+					</div>
 					<div class="mtb-50 pos-relative">
 						<img src="/images/banner-1-600x450.jpg" alt="">
 						<div class="abs-tblr bg-layer-7 text-center color-white">

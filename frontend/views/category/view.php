@@ -2,13 +2,14 @@
 
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+use frontend\components\SidebarPopularArticles;
 
 ?>
 <section class="ptb-0">
 	<div class="mb-30 brdr-ash-1 opacty-5"></div>
 	<div class="container">
-		<a class="mt-10" href="<?=url::home()?>"><i class="mr-5 ion-ios-home"></i>Home<i class="mlr-10 ion-chevron-right"></i></a>
-		<a class="mt-10 color-ash" href="<?=Url::to(['category/view', 'id' => $category->id])?>"><?=$category->title?></a>
+		<a class="mt-10" href="<?= url::home() ?>"><i class="mr-5 ion-ios-home"></i>Home<i class="mlr-10 ion-chevron-right"></i></a>
+		<a class="mt-10 color-ash" href="<?= Url::to(['category/view', 'id' => $category->id]) ?>"><?= $category->title ?></a>
 	</div><!-- container -->
 </section>
 
@@ -26,17 +27,32 @@ use yii\widgets\LinkPager;
 								<h4 class="pt-20"><b><?= $article->title ?></b></h4>
 							</a>
 							<ul class="list-li-mr-20 pt-10 mb-30">
-								<li class="color-lite-black">by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-									Jan 25, 2018</li>
-								<li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
+								<li class="color-lite-black">by <a href="#" class="color-black"><b><?= $article->author ?></b></a>
+								<?= dateArticle($article->time) ?></li>
 								<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
 							</ul>
 						</div><!-- col-sm-6 -->
 					<?php endforeach; ?>
-					<div class="col-md-12" style="text-align: center;">
-						<?=LinkPager::widget([
-							'pagination' => $pages
-						])?>
+					<div class="col-md-12">
+						<?= LinkPager::widget([
+							'pagination' => $pages,
+							'maxButtonCount' => 10,
+							'pageCssClass' => 'page-item',
+							'linkOptions' => [
+								'class' => 'page-link page-link-mel'
+							],
+							'prevPageCssClass' => 'page-item',
+							'nextPageCssClass' => 'page-item',
+							'disabledListItemSubTagOptions' => [
+								'tag' => 'a',
+								'class' => 'page-link page-link-mel',
+								'tabindex' => '-1',
+							],
+							'options' => [
+								'class ' => 'pagination pagination-melsize justify-content-center'
+							]
+						]) ?>
+
 					</div>
 				</div><!-- row -->
 
@@ -46,17 +62,12 @@ use yii\widgets\LinkPager;
 			<div class="d-none d-md-block d-lg-none col-md-3"></div>
 			<div class="col-md-6 col-lg-4">
 				<div class="pl-20 pl-md-0">
-					<ul class="list-block list-li-ptb-15 list-btm-border-white bg-primary text-center">
-						<li><b>1 BTC = $13,2323</b></li>
-						<li><b>1 BCH = $13,2323</b></li>
-						<li><b>1 ETH = $13,2323</b></li>
-						<li><b>1 LTC = $13,2323</b></li>
-						<li><b>1 DAS = $13,2323</b></li>
-						<li><b>1 BCC = $13,2323</b></li>
-					</ul>
-
-					<?= $this->render('//layouts/popularpart/sidebar')   ?>
-
+					<div class="mtb-0">
+						<h4 class="p-title"><b><?= Yii::t('common', 'POPULAR POSTS') ?></b></h4>
+						<?= SidebarPopularArticles::widget([
+							'tpl' => 'sidebarpopularmenu'
+						]) ?>
+					</div>
 					<div class="mtb-50 pos-relative">
 						<img src="/images/banner-1-600x450.jpg" alt="">
 						<div class="abs-tblr bg-layer-7 text-center color-white">
