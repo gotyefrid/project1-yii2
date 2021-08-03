@@ -21,7 +21,6 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,600,700" rel="stylesheet">
 
@@ -167,7 +166,6 @@ AppAsset::register($this);
             </div><!-- oflow-hidden -->
         </div><!-- container -->
     </footer>
-
     <?php $this->endBody() ?>
 </body>
 
