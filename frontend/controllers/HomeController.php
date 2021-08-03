@@ -10,9 +10,6 @@ class HomeController extends AppController
 
   public function actionIndex()
   {
-    // $toparticles = Article::find()->where(['<>', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->all();
-    // $recentarticles = Article::find()->where(['=', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->orderBy(['time' => SORT_DESC])->all();
-    // $populararticles = Article::find()->where(['<>', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->limit(3)->all();
     $articles = Article::find()->where(['langArticle' => Yii::$app->language])->orderBy(['time' => SORT_DESC])->limit(6)->all(); 
 
     return $this->render('index', compact('articles'));
