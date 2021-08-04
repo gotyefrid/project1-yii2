@@ -2,7 +2,8 @@
 
 namespace backend\controllers;
 
-
+use app\models\Article;
+use app\models\Category;
 
 /**
  * Site controller
@@ -11,6 +12,9 @@ class MainController extends AppAdminController
 {
   public function actionIndex()
   {
-    return $this->render('index');
+
+    $articlesCount = Article::find()->count();
+    $categoryCount = Category::find()->count();
+    return $this->render('index', compact('articlesCount', 'categoryCount'));
   }
 }

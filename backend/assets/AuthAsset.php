@@ -4,9 +4,6 @@ namespace backend\assets;
 
 use yii\web\AssetBundle;
 
-/**
- * Main backend application asset bundle.
- */
 class AuthAsset extends AssetBundle
 {
     public $basePath = '@webroot';
@@ -22,7 +19,7 @@ class AuthAsset extends AssetBundle
     public $js = [
         'adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js',
         'adminlte/plugins/iCheck/icheck.min.js',
-        'js/script1',
+        'js/script1.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
