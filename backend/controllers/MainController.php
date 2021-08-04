@@ -1,12 +1,16 @@
 <?php
+
 namespace backend\controllers;
 
-use yii\web\Controller;
+
 
 /**
  * Site controller
  */
-class MainController extends Controller
+class MainController extends AppAdminController
 {
-    
+  public function actionIndex()
+  {
+    return $this->render('index');
+  }
 }

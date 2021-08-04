@@ -12,6 +12,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'layout' => 'admintpl',
+    'defaultRoute' => 'main/index',
     'modules' => [],
     'components' => [
         'request' => [
@@ -38,12 +39,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //     ],
-        // ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'admin' => 'main/index'
+            ],
+        ],
     ],
     'params' => $params,
 ];

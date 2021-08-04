@@ -18,9 +18,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="<?= Yii::$app->language ?>">
 
 <head>
-  <base href="adminlte/">
+  <base href="/adminlte">
   <meta charset="<?= Yii::$app->charset ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -96,7 +97,7 @@ desired effect
                       <a href="#">
                         <div class="pull-left">
                           <!-- User Image -->
-                          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                          <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                         </div>
                         <!-- Message title and timestamp -->
                         <h4>
