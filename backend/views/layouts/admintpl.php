@@ -293,7 +293,7 @@ desired effect
           <?= $this->title ?>
         </h1>
         <?= Breadcrumbs::widget([
-          'homeLink' => ['label' => 'Главная', 'url' => ''],
+          'homeLink' => ['label' => 'Главная', 'url' => 'index'],
           'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
