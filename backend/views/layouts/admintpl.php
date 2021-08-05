@@ -18,7 +18,7 @@ AdminAsset::register($this);
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="<?= Yii::$app->language ?>">
+<html lang="ru">
 
 <head>
   <meta charset="<?= Yii::$app->charset ?>">
@@ -99,7 +99,7 @@ desired effect
                       <a href="#">
                         <div class="pull-left">
                           <!-- User Image -->
-                          <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                          <img src="<?=Url::to('/backend/web/adminlte/dist/img/user2-160x160.jpg')?>" class="img-circle" alt="User Image">
                         </div>
                         <!-- Message title and timestamp -->
                         <h4>
@@ -185,14 +185,14 @@ desired effect
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <!-- The user image in the navbar-->
-                <img src="adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <img src="<?=Url::to('/backend/web/adminlte/dist/img/user2-160x160.jpg')?>" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs"><?= Yii::$app->user->identity->username ?></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
                 <li class="user-header">
-                  <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <img src="<?=Url::to('/backend/web/adminlte/dist/img/user2-160x160.jpg')?>" class="img-circle" alt="User Image">
 
                   <p>
                     <?= Yii::$app->user->identity->username ?>
@@ -241,7 +241,7 @@ desired effect
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            <img src="<?=Url::to('/backend/web/adminlte/dist/img/user2-160x160.jpg')?>" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
             <p><?= Yii::$app->user->identity->username ?></p>

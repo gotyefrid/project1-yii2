@@ -3,6 +3,9 @@
 namespace app\models;
 
 use Yii;
+use yii\db\Expression;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "articles".
@@ -20,8 +23,21 @@ use Yii;
  * @property string $imgPreview
  * @property string|null $top
  */
-class Article extends \yii\db\ActiveRecord
+class Article extends ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['time'],
+                ],
+                // если вместо метки времени UNIX используется datetime:
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * {@inheritdoc}
      */
@@ -52,17 +68,21 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'time' => 'Time',
-            'category_id' => 'Category ID',
-            'langArticle' => 'Lang Article',
-            'title' => 'Title',
-            'fullTitle' => 'Full Title',
-            'author' => 'Author',
-            'content' => 'Content',
+            'time' => 'Дата добавления',
+            'category_id' => 'Категория',
+            'langArticle' => 'Язык',
+            'title' => 'Заголовок 1',
+            'fullTitle' => 'Заголовок 2',
+            'author' => 'Автор',
+            'content' => 'Содержимое',
             'description' => 'Description',
             'keywords' => 'Keywords',
-            'imgPreview' => 'Img Preview',
+            'imgPreview' => 'Картинка превью',
             'top' => 'Top',
         ];
     }
+    public function getCategory()
+  {
+    return $this->hasOne(Category::class, ['id' => 'category_id']);
+  }
 }
