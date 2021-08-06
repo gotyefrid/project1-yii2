@@ -3,25 +3,21 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Article */
+/* @var $model app\models\Category */
 
-$this->title = 'Редактирование статьи: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Статьи/проклы', 'url' => ['index']];
+$this->title = 'Редактирование: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редактирование';
 ?>
-
 <div class="row">
-    <div class="cpm-md-12">
+    <div class="col-md-12">
         <div class="box">
             <div class="box-body">
-                <div class="article-update">
-
-                    <!-- <h1><?= Html::encode($this->title) ?></h1> -->
+            <div class="category-update">
 
                     <?= $this->render('_form', [
                         'model' => $model,
-                        'language' => $language,
                     ]) ?>
 
                 </div>

@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Article;
+use app\models\Category;
 
 /**
- * ArticleSearch represents the model behind the search form of `app\models\Article`.
+ * CategorySearch represents the model behind the search form of `app\models\Category`.
  */
-class ArticleSearch extends Article
+class CategorySearch extends Category
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['id', 'category_id'], 'integer'],
-            [['time', 'langArticle', 'title', 'fullTitle', 'author', 'content', 'description', 'keywords', 'imgPreview', 'top'], 'safe'],
+            [['id', 'parent_id'], 'integer'],
+            [['language', 'title', 'description', 'keywords'], 'safe'],
         ];
     }
 
@@ -40,16 +40,12 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find()->with('category');
+        $query = Category::find()->with('category');
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => [
-                'pageSize' => 10,
-                
-            ]
         ]);
 
         $this->load($params);
@@ -63,19 +59,13 @@ class ArticleSearch extends Article
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'time' => $this->time,
-            'category_id' => $this->category_id,
+            'parent_id' => $this->parent_id,
         ]);
 
-        $query->andFilterWhere(['like', 'langArticle', $this->langArticle])
+        $query->andFilterWhere(['like', 'language', $this->language])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'fullTitle', $this->fullTitle])
-            ->andFilterWhere(['like', 'author', $this->author])
-            ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'keywords', $this->keywords])
-            ->andFilterWhere(['like', 'imgPreview', $this->imgPreview])
-            ->andFilterWhere(['like', 'top', $this->top]);
+            ->andFilterWhere(['like', 'keywords', $this->keywords]);
 
         return $dataProvider;
     }

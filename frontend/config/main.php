@@ -42,18 +42,18 @@ return [
             'errorAction' => 'app/error',
         ],
         
-        // 'urlManager' => [
-        //     'class' => 'codemix\localeurls\UrlManager',
-        //     'languages' => ['en', 'it', 'es'],
-        //     'enableDefaultLanguageUrlCode' => true,
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         'category/<id:\d+>/page/<page:\d+>' => 'category/view',
-        //         'category/<id:\d+>' =>  'category/view',
-        //         'article/<id:\d+>' => 'article/view',
-        //     ],
-        // ],
+        'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en', 'it', 'es'],
+            'enableDefaultLanguageUrlCode' => true,
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'category/<id:\d+>/page/<page:\d+>' => 'category/view',
+                'category/<id:\d+>' =>  'category/view',
+                'article/<id:\d+>' => 'article/view',
+            ],
+        ],
         'i18n' => [
             'translations' => [
                 'common*' => [

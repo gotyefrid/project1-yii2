@@ -267,16 +267,26 @@ desired effect
           <li class="header">HEADER</li>
           <!-- Optionally, you can add icons to the links -->
           <li class="active"><a href="<?= Url::home() ?>"><i class="fa fa-bar-chart"></i> <span>Общее</span></a></li>
-          <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
           <li class="treeview">
-            <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+            <a href="#"><i class="fa fa-newspaper-o"></i> <span>Статьи/проклы</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#">Link in level 2</a></li>
-              <li><a href="#">Link in level 2</a></li>
+              <li><a href="<?=Url::to(['article/index'])?>">Список статей</a></li>
+              <li><a href="<?=Url::to(['article/create'])?>">Добавить статью</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#"><i class="fa fa-cubes"></i> <span>Категории</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="<?=Url::to(['category/index'])?>">Список категорий</a></li>
+              <li><a href="<?=Url::to(['category/create'])?>">Добавить категорию</a></li>
             </ul>
           </li>
         </ul>
@@ -296,7 +306,11 @@ desired effect
           'homeLink' => ['label' => 'Главная', 'url' => 'index'],
           'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= Alert::widget() ?>
+        <?= Alert::widget([
+          'options' => [
+            'style' => 'margin-top: 10px;'
+          ]
+        ]) ?>
       </section>
 
       <!-- Main content -->

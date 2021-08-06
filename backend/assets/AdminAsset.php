@@ -23,6 +23,7 @@ class AdminAsset extends AssetBundle
     public $js = [
         'adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js',
         'adminlte/dist/js/adminlte.min.js',
+        'js/sidebar.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

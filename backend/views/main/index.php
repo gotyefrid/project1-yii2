@@ -9,10 +9,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="small-box bg-aqua">
       <div class="inner">
         <h3><?= $articlesCount ?></h3>
-        <p>Прокл на сайте</p>
+        <p>Кол-во статей на сайте</p>
       </div>
       <div class="icon">
-        <i class="fa fa-shopping-cart"></i>
+        <i class="fa fa-newspaper-o"></i>
       </div>
       <a href="<?= \yii\helpers\Url::to(['article/index']) ?>" class="small-box-footer">
         Подробнее <i class="fa fa-arrow-circle-right"></i>
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="small-box bg-yellow">
       <div class="inner">
         <h3><?= $categoryCount ?></h3>
-        <p>Категорий</p>
+        <p>Кол-во категорий</p>
       </div>
       <div class="icon">
         <i class="fa fa-cubes"></i>

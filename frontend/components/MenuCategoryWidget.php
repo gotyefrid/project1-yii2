@@ -13,6 +13,8 @@ class MenuCategoryWidget extends Widget
   public $data;
   public $tree;
   public $menuhtml;
+  public $model;
+  public $cacheTime = 1;
 
   public function init()
   {
@@ -29,11 +31,13 @@ class MenuCategoryWidget extends Widget
     if ($menu) {
       return $menu;
     }
-    $this->data = Category::find()->select('id, language, parent_id, title')->where(['language'=> Yii::$app->language])->indexBy('id')->asArray()->all();
+    (Yii::$app->language == 'ru') 
+    ?  $this->data = Category::find()->select('id, language, parent_id, title')->indexBy('id')->orderBy(['title' => SORT_DESC])->asArray()->all()
+    :  $this->data = Category::find()->select('id, language, parent_id, title')->where(['language' => Yii::$app->language])->indexBy('id')->asArray()->all();
     $this->tree = $this->getTree();
     $this->menuhtml = $this->getMenuHtml($this->tree);
     // Устанавливаем кэш
-    Yii::$app->cache->set('category', $this->menuhtml, 1);
+    Yii::$app->cache->set('category', $this->menuhtml, $this->cacheTime);
 
     return  $this->menuhtml;
   }
@@ -50,15 +54,15 @@ class MenuCategoryWidget extends Widget
     }
     return $tree;
   }
-  protected function getMenuHtml($tree)
+  protected function getMenuHtml($tree, $tab ='')
   {
     $str = '';
     foreach ($tree as $category) {
-      $str .= $this->catToTemplate($category);
+      $str .= $this->catToTemplate($category, $tab);
     }
     return $str;
   }
-  protected function catToTemplate($category)
+  protected function catToTemplate($category, $tab)
   {
     ob_start();
     include __DIR__ . '/menucategory_tpl/' . $this->tpl;

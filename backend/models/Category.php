@@ -45,11 +45,19 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'language' => 'Language',
-            'parent_id' => 'Parent ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'keywords' => 'Keywords',
+            'language' => 'Язык',
+            'parent_id' => 'Вложена в',
+            'title' => 'Название',
+            'description' => 'Описание',
+            'keywords' => 'Ключевики',
         ];
+    }
+    public function getArticle()
+    {
+      return $this->hasMany(Article::class, ['category_id' => 'id']);
+    }
+    public function getCategory()
+    {
+      return $this->hasOne(Category::class, ['id' => 'parent_id']);
     }
 }

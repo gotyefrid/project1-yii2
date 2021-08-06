@@ -6,14 +6,14 @@ use Yii;
 use app\models\Article;
 use app\models\Category;
 use yii\filters\VerbFilter;
-use app\models\ArticleSearch;
+use app\models\CategorySearch;
 use yii\web\NotFoundHttpException;
 use backend\controllers\AppAdminController;
 
 /**
- * ArticleController implements the CRUD actions for Article model.
+ * CategoryController implements the CRUD actions for Category model.
  */
-class ArticleController extends AppAdminController
+class CategoryController extends AppAdminController
 {
     /**
      * {@inheritdoc}
@@ -22,7 +22,7 @@ class ArticleController extends AppAdminController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -31,12 +31,12 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Lists all Article models.
+     * Lists all Category models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch();
+        $searchModel = new CategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +46,7 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Displays a single Article model.
+     * Displays a single Category model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,13 +59,13 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Creates a new Article model.
+     * Creates a new Category model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Article();
+        $model = new Category();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -77,7 +77,7 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Updates an existing Article model.
+     * Updates an existing Category model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -86,20 +86,18 @@ class ArticleController extends AppAdminController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $language = Category::find()->select(['language'], 'DISTINCT')->asArray()->all();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Обновлено');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
-            'language' => $language,
         ]);
     }
 
     /**
-     * Deletes an existing Article model.
+     * Deletes an existing Category model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,21 +105,28 @@ class ArticleController extends AppAdminController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $cats = Category::find()->where(['parent_id' => $id])->count();
+        $arts = Article::find()->where(['category_id' => $id])->count();
+        if ($cats || $arts) {
+            Yii::$app->session->setFlash('error', 'Удаление невозможно, на эту категорию ссылаются другие категории или статьи');
+        } else {
+            $this->findModel($id)->delete();
+            Yii::$app->session->setFlash('success', 'Удаление выполнено успешно!');
+        }
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Article model based on its primary key value.
+     * Finds the Category model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Article the loaded model
+     * @return Category the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Article::findOne($id)) !== null) {
+        if (($model = Category::findOne($id)) !== null) {
             return $model;
         }
 
