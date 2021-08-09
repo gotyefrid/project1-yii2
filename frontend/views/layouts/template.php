@@ -21,6 +21,8 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+    <?php //FIXME: шрифты тоже подключать в AppAsset ?>
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,600,700" rel="stylesheet">
 
@@ -80,7 +82,7 @@ AppAsset::register($this);
                     </ul>
                 </li>
 
-                
+
                 <!-- <li><a href="05_FAQS-single.html">EXPLAINED</a></li>
                 <li><a href="06_contact-us.html">ICON CLAENDER</a></li> -->
             </ul>
@@ -89,7 +91,7 @@ AppAsset::register($this);
         </div><!-- container -->
     </header>
 
-                      
+
     <?= $content ?>
 
 
