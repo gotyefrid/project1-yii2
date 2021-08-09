@@ -17,15 +17,15 @@ class SidebarPopularArticles extends Widget
   {
     parent::init();
     if ($this->tpl === null) {
-      $this->tpl = 'sidebarpopularmenu';
+      $this->tpl = 'sidebarpopularmenu'; // FIXME: названия файлов называть по kebab-kase (sidebar-popular-menu)
     }
     $this->tpl .= '.php';
   }
   public function run()
   {
     //Получение данных из кэша
-    $menu = Yii::$app->cache->get('poparticles');
-    if ($menu) {
+    $menu = Yii::$app->cache->get('poparticles'); // FIXME: название файла "pop-articles"
+    if ($menu) { // FIXME: для хорошей читабельности кода желательно отделять блок c операторами if/return/while/foreach от другого кода (т.е. должна быть 1 пустая строка ДО блока и ПОСЛЕ блока)
       return $menu;
     }
     $this->data = Article::find()->where(['=', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->indexBy('id')->asArray()->limit(3)->all();
@@ -36,7 +36,7 @@ class SidebarPopularArticles extends Widget
 
     return  $this->menuhtml;
   }
-  
+
   protected function getMenuHtml($tree)
   {
     $str = '';

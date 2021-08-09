@@ -3,6 +3,8 @@
 use yii\helpers\Url;
 use frontend\components\SidebarPopularArticles;
 
+// FIXME: чтобы обозначить окончания действия тега в HTML-разметки используют "слэш", далее идет . (если это селектор) или # (если это идентификатор), а потом название. Например, <!-- /.container -->
+
 ?>
 <section class="ptb-0">
 	<div class="mb-30 brdr-ash-1 opacty-5"></div>

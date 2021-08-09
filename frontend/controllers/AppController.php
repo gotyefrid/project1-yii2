@@ -4,7 +4,8 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 
-class AppController extends Controller 
+// FIXME: у тебя в этом файле код в пляс пустился )) Отформатируй его с отступами между строками и пробелами
+class AppController extends Controller
 {
   public function actions()
   {
@@ -22,7 +23,8 @@ class AppController extends Controller
   {
      $this->view->title = Yii::$app->name;
     return parent::beforeAction($action);
-  } 
+  }
+
 
 protected function setMeta($title = null, $keywords = null, $description = null)
 {

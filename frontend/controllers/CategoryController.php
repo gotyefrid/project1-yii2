@@ -18,7 +18,7 @@ class CategoryController extends AppController
       throw new NotFoundHttpException('There is no category!');
     }
     $this->setMeta("{$category->title} :: ".Yii::$app->name, $category->keywords, $category->description);
-    //$articles = Article::find()->where(['category_id' => $id])->all();
+    //$articles = Article::find()->where(['category_id' => $id])->all(); // FIXME: старайся, чтобы закомментированного кода не было. Если нужно его оставить для чего-то, то пиши комментарий до какой даты он нужен или почему ты оставил
     $queryart = Article::find()->where(['category_id' => $id]);
     $pages = new Pagination(['totalCount' => $queryart->count(), 'pageSize' => 2, 'pageSizeParam' => false, 'forcePageParam' => false]);
     $articles = $queryart->offset($pages->offset)->limit($pages->limit)->all();
