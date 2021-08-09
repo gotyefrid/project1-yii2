@@ -19,21 +19,26 @@ class MenuCategoryWidget extends Widget
   public function init()
   {
     parent::init();
+
     if ($this->tpl === null) {
       $this->tpl = 'category';
     }
+
     $this->tpl .= '.php';
   }
   public function run()
   {
     //Получение данных из кэша
     $menu = Yii::$app->cache->get('category');
+
     if ($menu) {
       return $menu;
     }
+
     (Yii::$app->language == 'ru') 
     ?  $this->data = Category::find()->select('id, language, parent_id, title')->indexBy('id')->orderBy(['title' => SORT_DESC])->asArray()->all()
     :  $this->data = Category::find()->select('id, language, parent_id, title')->where(['language' => Yii::$app->language])->indexBy('id')->asArray()->all();
+
     $this->tree = $this->getTree();
     $this->menuhtml = $this->getMenuHtml($this->tree);
     // Устанавливаем кэш
@@ -45,7 +50,9 @@ class MenuCategoryWidget extends Widget
   {
 
     $tree = [];
+
     foreach ($this->data as $id => &$node) {
+
       if (!$node['parent_id']) {
         $tree[$id] = &$node;
       } else {
@@ -57,9 +64,11 @@ class MenuCategoryWidget extends Widget
   protected function getMenuHtml($tree, $tab ='')
   {
     $str = '';
+
     foreach ($tree as $category) {
       $str .= $this->catToTemplate($category, $tab);
     }
+    
     return $str;
   }
   protected function catToTemplate($category, $tab)

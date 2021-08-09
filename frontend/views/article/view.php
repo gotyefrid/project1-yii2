@@ -49,7 +49,7 @@ use frontend\components\SidebarPopularArticles;
 				<h4 class="p-title mt-50"><b>YOU MAY ALSO LIKE</b></h4>
 				<div class="row">
 					<?= SidebarPopularArticles::widget([
-						'tpl' => 'alsolike'
+						'tpl' => 'also-like'
 					]) ?>
 				</div><!-- row -->
 
@@ -120,7 +120,7 @@ use frontend\components\SidebarPopularArticles;
 					<div class="mtb-0">
 						<h4 class="p-title"><b><?= Yii::t('common', 'POPULAR POSTS') ?></b></h4>
 						<?= SidebarPopularArticles::widget([
-							'tpl' => 'sidebarpopularmenu'
+							'tpl' => 'sidebar-popular-menu'
 						]) ?>
 					</div><!-- mtb-50 -->
 

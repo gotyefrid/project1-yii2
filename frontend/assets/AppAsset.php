@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
 	   'common/bootstrap.css',
        'common/styles.css',
        'fonts/ionicons.css',
+       'https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,600,700'
 
     ];
     public $js = [

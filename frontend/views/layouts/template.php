@@ -1,8 +1,4 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use frontend\components\MenuCategoryWidget;
@@ -21,14 +17,6 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-
-    <?php //FIXME: шрифты тоже подключать в AppAsset ?>
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,600,700" rel="stylesheet">
-
-
-
-
 </head>
 
 <body>
@@ -37,7 +25,6 @@ AppAsset::register($this);
         <div class="bg-191">
             <div class="container">
                 <div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
-
                     <ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
                         <li><a class="pl-0 pl-sm-10" href="#">About</a></li>
                         <li><a href="#">Advertise</a></li>
@@ -51,18 +38,12 @@ AppAsset::register($this);
                         <li><a href="#"><i class="ion-social-instagram"></i></a></li>
                         <li><a href="#"><i class="ion-social-bitcoin"></i></a></li>
                     </ul>
-
                 </div><!-- top-menu -->
             </div><!-- container -->
         </div><!-- bg-191 -->
 
         <div class="container">
             <a class="logo" href="<?= Url::home() ?>"><img src="/images/logo-black.png" alt="Logo"></a>
-
-            <!-- <a class="right-area src-btn" href="#">
-                <i class="active src-icn ion-search"></i>
-                <i class="close-icn ion-close"></i>
-            </a> -->
             <div class="src-form">
                 <form>
                     <input type="text" placeholder="Search here">
@@ -73,20 +54,15 @@ AppAsset::register($this);
             <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
 
             <ul class="main-menu" id="main-menu">
-                <li><a href="02_archive-page.html"><?=Yii::t('common', 'NEWS')?></a></li>
-                <li class="drop-down"><a href="#"><?=Yii::t('common', 'CATEGORIES')?><i class="ion-arrow-down-b"></i></a>
+                <li><a href="02_archive-page.html"><?= Yii::t('common', 'NEWS') ?></a></li>
+                <li class="drop-down"><a href="#"><?= Yii::t('common', 'CATEGORIES') ?><i class="ion-arrow-down-b"></i></a>
                     <ul class="drop-down-menu drop-down-inner">
                         <?= MenuCategoryWidget::widget([
-                            'tpl' => 'menucategory'
+                            'tpl' => 'menu-category'
                         ]) ?>
                     </ul>
                 </li>
-
-
-                <!-- <li><a href="05_FAQS-single.html">EXPLAINED</a></li>
-                <li><a href="06_contact-us.html">ICON CLAENDER</a></li> -->
             </ul>
-            
             <div class="clearfix"></div>
         </div><!-- container -->
     </header>

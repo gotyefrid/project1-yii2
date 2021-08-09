@@ -16,23 +16,27 @@ class SidebarPopularArticles extends Widget
   public function init()
   {
     parent::init();
+
     if ($this->tpl === null) {
-      $this->tpl = 'sidebarpopularmenu'; // FIXME: названия файлов называть по kebab-kase (sidebar-popular-menu)
+      $this->tpl = 'sidebar-popular-menu'; 
     }
+
     $this->tpl .= '.php';
   }
   public function run()
   {
     //Получение данных из кэша
-    $menu = Yii::$app->cache->get('poparticles'); // FIXME: название файла "pop-articles"
-    if ($menu) { // FIXME: для хорошей читабельности кода желательно отделять блок c операторами if/return/while/foreach от другого кода (т.е. должна быть 1 пустая строка ДО блока и ПОСЛЕ блока)
+    $menu = Yii::$app->cache->get('pop-articles');
+
+    if ($menu) { 
       return $menu;
     }
+
     $this->data = Article::find()->where(['=', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->indexBy('id')->asArray()->limit(3)->all();
     $this->tree = $this->data;
     $this->menuhtml = $this->getMenuHtml($this->tree);
     // Устанавливаем кэш
-    Yii::$app->cache->set('poparticles', $this->menuhtml, 1);
+    Yii::$app->cache->set('pop-articles', $this->menuhtml, 1);
 
     return  $this->menuhtml;
   }
@@ -40,9 +44,11 @@ class SidebarPopularArticles extends Widget
   protected function getMenuHtml($tree)
   {
     $str = '';
+
     foreach ($tree as $article) {
       $str .= $this->catToTemplate($article);
     }
+    
     return $str;
   }
   protected function catToTemplate($article)

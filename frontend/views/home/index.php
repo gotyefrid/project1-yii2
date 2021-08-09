@@ -106,7 +106,7 @@ use frontend\components\SidebarPopularArticles;
 					<div class="mtb-30">
 						<h4 class="p-title"><b><?= Yii::t('common', 'POPULAR POSTS') ?></b></h4>
 						<?= SidebarPopularArticles::widget([
-							'tpl' => 'sidebarpopularmenu'
+							'tpl' => 'sidebar-popular-menu'
 						]) ?>
 					</div>
 					<div class="mtb-50 pos-relative">
