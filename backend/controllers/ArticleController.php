@@ -86,15 +86,13 @@ class ArticleController extends AppAdminController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $language = Category::find()->select(['language'], 'DISTINCT')->asArray()->all();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Обновлено');
+            Yii::$app->session->setFlash('success', 'Изменения сохранены!');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
-            'language' => $language,
         ]);
     }
 

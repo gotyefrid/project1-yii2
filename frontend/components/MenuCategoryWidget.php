@@ -36,7 +36,7 @@ class MenuCategoryWidget extends Widget
     }
 
     (Yii::$app->language == 'ru') 
-    ?  $this->data = Category::find()->select('id, language, parent_id, title')->indexBy('id')->orderBy(['title' => SORT_DESC])->asArray()->all()
+    ?  $this->data = Category::find()->select('id, language, parent_id, title')->indexBy('id')->orderBy(['title' => SORT_ASC])->asArray()->all()
     :  $this->data = Category::find()->select('id, language, parent_id, title')->where(['language' => Yii::$app->language])->indexBy('id')->asArray()->all();
 
     $this->tree = $this->getTree();

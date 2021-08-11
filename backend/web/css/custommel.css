@@ -1,3 +1,140 @@
-.thmel {
-    width: 15%;
+.ulmel1 {
+    margin-bottom: 8px;
+    padding:0;
+    list-style: none;
+    counter-reset: li;
+    list-style-position: inside;
+    column-count: 1;
+}    
+.ulmel1 li {
+    position: relative;
+    border: 2px solid #DDDDDD;
+    background: #FAFAFA;
+    padding: 8px 7px 8px 20px;
+    margin:0 0 12px 40px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    display: block;
+    font-size: 14px;
 }
+.ulmel1 li:hover {
+    background: #F0F5FB;
+    border: 2px solid #ADCEE9;
+}
+.ulmel1 li:before {
+    line-height: 32px;
+    position: absolute;
+    top: 4px;
+    left:-40px;
+    width:40px;
+    text-align:center;
+    font-weight: bold;
+    color: #FFF;
+    background: #37B6CE;
+    counter-increment: li;
+    content: counter(li);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+.ulmel1 li:hover:before {
+    width:46px;
+    background: #337AB7;
+}
+.ulmel1 li:after {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    content: "";
+    height: 0;
+    width: 0;
+    border: 16px solid transparent;
+    border-left-color: #37B6CE;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s
+}
+.ulmel1 li:hover:after {
+    margin-left: 6px;
+    border-left-color: #337AB7;
+}
+.ulmel2 {
+    margin-bottom: 8px;
+    padding:0;
+    list-style: none;
+    counter-reset: li;
+    list-style-position: inside;
+    column-count: 2;
+}    
+.ulmel2 li {
+    position: relative;
+    border: 2px solid #DDDDDD;
+    background: #FAFAFA;
+    padding: 8px 7px 8px 20px;
+    margin:0 0 12px 40px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    display: block;
+    font-size: 14px;
+}
+.ulmel2 li:hover {
+    background: #F0F5FB;
+    border: 2px solid #ADCEE9;
+}
+.ulmel2 li:before {
+    line-height: 32px;
+    position: absolute;
+    top: 4px;
+    left:-40px;
+    width:40px;
+    text-align:center;
+    font-weight: bold;
+    color: #FFF;
+    background: #37B6CE;
+    counter-increment: li;
+    content: counter(li);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+.ulmel2 li:hover:before {
+    width:46px;
+    background: #337AB7;
+}
+.ulmel2 li:after {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    content: "";
+    height: 0;
+    width: 0;
+    border: 16px solid transparent;
+    border-left-color: #37B6CE;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s
+}
+.ulmel2 li:hover:after {
+    margin-left: 6px;
+    border-left-color: #337AB7;
+}
+.ckeditorbtn {
+    background: #37B6CE; 
+    text-transform: uppercase;
+    font-weight: 800;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.ckeditorbtn a{ display: inline-block; text-decoration: none; color: inherit; line-height: 1.3; 
+	-webkit-transition: all .25s ease-in-out; transition: all .25s ease-in-out; 
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;}
+
+.ckeditorbtn a:focus, a:active, a:hover{ text-decoration: none; color: #000000; }
+
+.mtb-15 a{ display: inline-block; text-decoration: underline; color: #0B61A4; line-height: 1.3; 
+	-webkit-transition: all .25s ease-in-out; transition: all .25s ease-in-out; }
+
+.mtb-15 a:focus, a:active, a:hover{ text-decoration: none;}

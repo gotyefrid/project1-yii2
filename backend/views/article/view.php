@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\validators\Validator;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -45,15 +46,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'title',
                                 'fullTitle:ntext',
                                 'author',
-                                'content:ntext',
                                 'description',
                                 'keywords',
                                 [
                                     'attribute' => 'imgPreview',
-                                    'format' => ['image', ['width' => '100px']]
+                                    'value' => "/backend/web/{$model->imgPreview}",
+                                    'format' => 'image'
                                 ],
-                                'imgPreview',
                                 'top',
+                                'content:html',
                             ],
                             'template' => "<tr><th class='thmel'>{label}</th><td>{value}</td></tr>"
                         ]) ?>

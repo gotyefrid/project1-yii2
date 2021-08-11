@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 //'description',
                                 //'keywords',
                                 'imgPreview',
-                                //'top',
+                                'top',
 
                                 ['class' => 'yii\grid\ActionColumn'],
                             ],
