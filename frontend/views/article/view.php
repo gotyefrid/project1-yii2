@@ -6,6 +6,7 @@ use frontend\components\SidebarPopularArticles;
 // FIXME: чтобы обозначить окончания действия тега в HTML-разметки используют "слэш", далее идет . (если это селектор) или # (если это идентификатор), а потом название. Например, <!-- /.container -->
 
 ?>
+
 <section class="ptb-0">
 	<div class="mb-30 brdr-ash-1 opacty-5"></div>
 	<div class="container">
@@ -23,7 +24,7 @@ use frontend\components\SidebarPopularArticles;
 				<h3 class="mt-0"><b><?= $article->fullTitle ?></b></h3>
 				<ul class="list-li-mr-20 mtb-15">
 					<li>by <a href="#"><b><?= $article->author ?> </b></a> <?= dateArticle($article->time) ?></li>
-					<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>30</li>
+					<li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i><?=count($article->comments)?></li>
 				</ul>
 				<!-- Content of article -->
 				<?= $article->content ?>
@@ -53,62 +54,30 @@ use frontend\components\SidebarPopularArticles;
 					]) ?>
 				</div><!-- row -->
 
-				<h4 class="p-title mt-20"><b>03 COMMENTS</b></h4>
-
+				<h4 class="p-title mt-20"><b><?=count($article->comments)?> COMMENTS</b></h4>
+				<?php foreach ($article->comments as $comment) : ?>
 				<div class="sided-70 mb-40">
 
 					<div class="s-left rounded">
-						<img src="/images/profile-3-120x120.jpg" alt="">
+						<img src="<?=url::to("/backend/web/$comment->img")?>" alt="">
 					</div><!-- s-left -->
 
 					<div class="s-right ml-100 ml-xs-85">
-						<h5><b>Shuhein Chui, </b> <span class="font-8 color-ash">Nov 21, 2017</span></h5>
-						<p class="mtb-15">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-							doloremque laudantium, totam rem aperiam.</p>
-						<a class="btn-brdr-grey btn-b-sm plr-15 mr-10 mt-5" href="#"><b>LIKE</b></a>
-						<a class="btn-brdr-grey btn-b-sm plr-15 mt-5" href="#"><b>REPLY</b></a>
+					
+						<h5><b><?=$comment->name?> </b> <span class="font-8 color-ash"><?=dateComment($comment->date)?></span></h5>
+						<p class="mtb-15"><?=$comment->text?></p>
+						<!-- <a class="btn-brdr-grey btn-b-sm plr-15 mr-10 mt-5" href="#"><b>LIKE</b></a>
+						<a class="btn-brdr-grey btn-b-sm plr-15 mt-5" href="#"><b>REPLY</b></a> -->
+
 					</div><!-- s-right -->
 
 				</div><!-- sided-70 -->
-
-				<div class="sided-70 ml-100 ml-xs-20 mb-40">
-
-					<div class="s-left rounded">
-						<img src="/images/profile-1-120x120.jpg" alt="">
-					</div><!-- s-left -->
-
-					<div class="s-right ml-100 ml-xs-85">
-						<h5><b>Shuhein Chui, </b> <span class="font-8 color-ash">Nov 21, 2017</span></h5>
-						<p class="mtb-10">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-							doloremque laudantium, totam rem aperiam.</p>
-						<a class="btn-brdr-grey btn-b-sm plr-15 mr-10 mt-5" href="#"><b>LIKE</b></a>
-						<a class="btn-brdr-grey btn-b-sm plr-15 mt-5" href="#"><b>REPLY</b></a>
-					</div><!-- s-right -->
-
-				</div><!-- sided-70 -->
-
-				<div class="sided-70 mb-50">
-
-					<div class="s-left rounded">
-						<img src="/images/profile-2-120x120.jpg" alt="">
-					</div><!-- s-left -->
-
-					<div class="s-right ml-100 ml-xs-85">
-						<h5><b>Shuhein Chui, </b> <span class="font-8 color-ash">Nov 21, 2017</span></h5>
-						<p class="mt-10 mb-15">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-							doloremque laudantium, totam rem aperiam.</p>
-						<a class="btn-brdr-grey btn-b-sm plr-15 mr-10" href="#"><b>LIKE</b></a>
-						<a class="btn-brdr-grey btn-b-sm plr-15" href="#"><b>REPLY</b></a>
-					</div><!-- s-right -->
-
-				</div><!-- sided-70 -->
+				<?php endforeach; ?>
 
 				<h4 class="p-title mt-20"><b>LEAVE A COMMENT</b></h4>
 
 				<form class="form-block form-plr-15 form-h-45 form-mb-20 form-brdr-lite-white mb-md-50">
 					<input type="text" placeholder="Your Name*:">
-					<input type="text" placeholder="Your Email*:">
-					<input type="text" placeholder="Your Phone*:">
 					<textarea class="ptb-10" placeholder="Your Comment"></textarea>
 					<button class="btn-fill-primary plr-30" rows="4" cols="50" type="submit"><b>LEAVE A COMMENT</b></button>
 				</form>

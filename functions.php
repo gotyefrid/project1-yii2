@@ -9,3 +9,7 @@ function dateArticle($date)
 {
     echo date("d.m.y", strtotime($date));
 }
+function dateComment($date)
+{
+    echo date("d.m.y", strtotime($date));
+}

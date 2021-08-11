@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Article;
-use yii\filters\VerbFilter;
-use app\models\ArticleSearch;
-use yii\web\NotFoundHttpException;
+use backend\models\Comment;
+use backend\models\CommentSearch;
 use backend\controllers\AppAdminController;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 
 /**
- * ArticleController implements the CRUD actions for Article model.
+ * CommentController implements the CRUD actions for Comment model.
  */
-class ArticleController extends AppAdminController
+class CommentController extends AppAdminController
 {
     /**
      * {@inheritdoc}
@@ -21,7 +21,7 @@ class ArticleController extends AppAdminController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -30,12 +30,12 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Lists all Article models.
+     * Lists all Comment models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch();
+        $searchModel = new CommentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Displays a single Article model.
+     * Displays a single Comment model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Creates a new Article model.
+     * Creates a new Comment model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Article();
+        $model = new Comment();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Updates an existing Article model.
+     * Updates an existing Comment model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,8 +85,8 @@ class ArticleController extends AppAdminController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Изменения сохранены!');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -96,7 +96,7 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Deletes an existing Article model.
+     * Deletes an existing Comment model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class ArticleController extends AppAdminController
     }
 
     /**
-     * Finds the Article model based on its primary key value.
+     * Finds the Comment model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Article the loaded model
+     * @return Comment the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Article::findOne($id)) !== null) {
+        if (($model = Comment::findOne($id)) !== null) {
             return $model;
         }
 

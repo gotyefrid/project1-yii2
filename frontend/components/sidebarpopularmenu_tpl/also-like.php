@@ -9,6 +9,6 @@ use yii\helpers\Url;
     <li class="color-lite-black">by <a href="#" class="color-black"><b><?= $article['author'] ?> </b></a>
 		<?=dateArticle($article['time'])?></li>
     <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-    <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
+    <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i><?=count($article['comments'])?></li>
   </ul>
 </div>

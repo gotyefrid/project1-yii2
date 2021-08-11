@@ -32,7 +32,15 @@ class SidebarPopularArticles extends Widget
       return $menu;
     }
 
-    $this->data = Article::find()->where(['=', 'top', '0'])->andWhere(['langArticle' => Yii::$app->language])->indexBy('id')->asArray()->limit(2)->all();
+    $this->data = Article::find()
+    ->andWhere(['langArticle' => Yii::$app->language])
+    ->indexBy('id')
+    ->orderBy('RAND()')
+    ->with('comments')
+    ->asArray()
+    ->limit(2)
+    ->all();
+    
     $this->tree = $this->data;
     $this->menuhtml = $this->getMenuHtml($this->tree);
     // Устанавливаем кэш

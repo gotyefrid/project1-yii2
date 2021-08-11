@@ -90,6 +90,10 @@ class Article extends ActiveRecord
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
+    public function getComments()
+    {
+        return $this->hasMany(Comment::class, ['article_id' => 'id']);
+    }
     public function beforeSave($insert)
     {
         if($file = UploadedFile::getInstance($this, 'file')){

@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use backend\models\Comment;
 use frontend\models\Article;
 use yii\web\NotFoundHttpException;
 
@@ -25,5 +26,5 @@ class ArticleController extends AppController
 
     $this->setMeta("{$article->title} :: " . Yii::$app->name, $article->keywords, $article->description);
     return $this->render('view', compact('article'));
-  }
+  } 
 }

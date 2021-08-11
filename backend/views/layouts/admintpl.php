@@ -289,6 +289,17 @@ desired effect
               <li><a href="<?=Url::to(['category/create'])?>">Добавить категорию</a></li>
             </ul>
           </li>
+          <li class="treeview">
+            <a href="<?=Url::to(['comment/index'])?>"><i class="fa fa-cubes"></i> <span>Комментарии</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="<?=Url::to(['comment/index'])?>">Список комментариев</a></li>
+              <li><a href="<?=Url::to(['comment/create'])?>">Добавить комментарий</a></li>
+            </ul>
+          </li>
         </ul>
         <!-- /.sidebar-menu -->
       </section>
