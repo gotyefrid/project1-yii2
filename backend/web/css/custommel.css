@@ -138,3 +138,23 @@
 	-webkit-transition: all .25s ease-in-out; transition: all .25s ease-in-out; }
 
 .mtb-15 a:focus, a:active, a:hover{ text-decoration: none;}
+
+.simple-button-plugin {
+    display:inline-block;
+    background-color:#37B6CE;
+    border:1px solid #37B6CE;
+    color:#000;
+    padding:12px 30px;
+    border-radius:2px;
+    font-size:16px;
+    text-decoration: none!important;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.simple-button-plugin:hover {
+    background-color: #FFF;    
+    color: #37B6CE;    
+    text-decoration: none;
+}
