@@ -3,9 +3,9 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Article;
+use common\models\Article;
+use common\models\ArticleSearch;
 use yii\filters\VerbFilter;
-use app\models\ArticleSearch;
 use yii\web\NotFoundHttpException;
 use backend\controllers\AppAdminController;
 

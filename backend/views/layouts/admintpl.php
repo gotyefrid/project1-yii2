@@ -290,7 +290,7 @@ desired effect
             </ul>
           </li>
           <li class="treeview">
-            <a href="<?=Url::to(['comment/index'])?>"><i class="fa fa-cubes"></i> <span>Комментарии</span>
+            <a href="<?=Url::to(['comment/index'])?>"><i class="fa fa-comments"></i> <span>Комментарии</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>

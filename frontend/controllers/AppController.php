@@ -14,7 +14,7 @@ class AppController extends Controller
         'class' => 'yii\web\ErrorAction',
       ],
       'page' => [
-        'class' => \yii\web\ViewAction::className(),
+        'class' => \yii\web\ViewAction::class,
         'viewPrefix' => 'pages/' . \Yii::$app->language
       ]
     ];
@@ -23,6 +23,7 @@ class AppController extends Controller
   public function beforeAction($action)
   {
     $this->view->title = Yii::$app->name;
+    
     return parent::beforeAction($action);
   }
 

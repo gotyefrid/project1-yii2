@@ -1,10 +1,11 @@
 <?php
 
-namespace frontend\components;
+namespace common\components;
 
 use Yii;
 use yii\base\Widget;
-use frontend\models\Article;
+use common\models\Article;
+
 
 class SidebarPopularArticles extends Widget
 {

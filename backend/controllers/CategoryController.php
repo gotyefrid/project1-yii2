@@ -3,10 +3,10 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Article;
-use app\models\Category;
+use common\models\Article;
+use common\models\Category;
+use common\models\CategorySearch;
 use yii\filters\VerbFilter;
-use app\models\CategorySearch;
 use yii\web\NotFoundHttpException;
 use backend\controllers\AppAdminController;
 
@@ -22,7 +22,7 @@ class CategoryController extends AppAdminController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],

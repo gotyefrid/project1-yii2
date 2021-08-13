@@ -3,7 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Article;
+use common\models\Article;
+
 
 class HomeController extends AppController
 {

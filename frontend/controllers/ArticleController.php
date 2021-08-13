@@ -3,8 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
-use backend\models\Comment;
-use frontend\models\Article;
+use common\models\Article;
 use yii\web\NotFoundHttpException;
 
 

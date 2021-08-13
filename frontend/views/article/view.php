@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Url;
-use frontend\components\SidebarPopularArticles;
+use common\components\SidebarPopularArticles;
 
 // FIXME: чтобы обозначить окончания действия тега в HTML-разметки используют "слэш", далее идет . (если это селектор) или # (если это идентификатор), а потом название. Например, <!-- /.container -->
 

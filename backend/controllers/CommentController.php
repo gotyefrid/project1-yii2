@@ -3,11 +3,11 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Comment;
-use backend\models\CommentSearch;
-use backend\controllers\AppAdminController;
-use yii\web\NotFoundHttpException;
+use common\models\Comment;
+use common\models\CommentSearch;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
+use backend\controllers\AppAdminController;
 
 /**
  * CommentController implements the CRUD actions for Comment model.
@@ -21,7 +21,7 @@ class CommentController extends AppAdminController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],

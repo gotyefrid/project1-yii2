@@ -3,9 +3,9 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Article;
-use frontend\models\Category;
 use yii\data\Pagination;
+use common\models\Article;
+use common\models\Category;
 use yii\web\NotFoundHttpException;
 
 class CategoryController extends AppController
@@ -23,6 +23,7 @@ class CategoryController extends AppController
     $queryart = Article::find()->where(['category_id' => $id]);
     $pages = new Pagination(['totalCount' => $queryart->count(), 'pageSize' => 2, 'pageSizeParam' => false, 'forcePageParam' => false]);
     $articles = $queryart->offset($pages->offset)->limit($pages->limit)->all();
+    
     return $this->render('view', compact('articles', 'category', 'pages'));
   }
 

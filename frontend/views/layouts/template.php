@@ -1,8 +1,8 @@
 <?php
+use yii\helpers\Url;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
-use frontend\components\MenuCategoryWidget;
-use yii\helpers\Url;
+use common\components\MenuCategoryWidget;
 
 AppAsset::register($this);
 ?>
