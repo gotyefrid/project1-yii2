@@ -5,8 +5,9 @@ namespace common\models;
 use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
-use yii\behaviors\TimestampBehavior;
 use yii\web\UploadedFile;
+use Imagine\Imagick\Imagine;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "articles".
@@ -26,11 +27,6 @@ use yii\web\UploadedFile;
  */
 class Article extends ActiveRecord
 {
-    /**
-     * @var UploadedFile
-     */
-    public $file;
-
     public function behaviors()
     {
         return [
@@ -44,6 +40,7 @@ class Article extends ActiveRecord
             ],
         ];
     }
+
     /**
      * {@inheritdoc}
      */
@@ -64,7 +61,7 @@ class Article extends ActiveRecord
             [['fullTitle', 'content'], 'string'],
             [['langArticle', 'author'], 'string', 'max' => 32],
             [['title', 'description', 'keywords', 'imgPreview', 'top'], 'string', 'max' => 255],
-            [['file'], 'image', 'extensions' => 'png, jpg'],
+            [['file'], 'image', 'extensions' => 'png, jpg', 'maxSize' => 1024 * 1024],
         ];
     }
 
@@ -85,29 +82,18 @@ class Article extends ActiveRecord
             'description' => 'Description',
             'keywords' => 'Keywords',
             'imgPreview' => 'Картинка превью',
-            'file' => 'Картинка превью', 
+            'file' => 'Картинка превью (будет изменён размер на 600x450)',
             'top' => 'Позиция на главной',
         ];
     }
+
     public function getCategory()
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
+
     public function getComments()
     {
         return $this->hasMany(Comment::class, ['article_id' => 'id']);
-    }
-    public function beforeSave($insert)
-    {
-        if($file = UploadedFile::getInstance($this, 'file')){
-            $dir = 'upload/images/'. date("Y-m-d") . "/";
-            if (!is_dir($dir)){
-                mkdir($dir); //ЕЩЕ НАДО ДОБАВИТЬ ПРАВА НА ЗАПИСЬ!
-            }   
-            $file_name = uniqid() . "_" . $file->baseName . '.' . $file->extension;
-            $this->imgPreview = $dir . $file_name;
-            $file->saveAs($this->imgPreview);
-        }
-        return parent::beforeSave($insert);
     }
 }

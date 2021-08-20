@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Article;
+use backend\models\Article;
 use common\models\ArticleSearch;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
