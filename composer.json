@@ -21,7 +21,8 @@
         "codemix/yii2-localeurls": "^1.7",
         "mihaildev/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",
-        "kartik-v/yii2-widget-fileinput": "@dev"
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "yiisoft/yii2-imagine": "^2.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

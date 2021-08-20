@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="box-body">
-                    <div class="order-view">
+                    <div class="order-view table-responsive">
 
                         <?= DetailView::widget([
                             'model' => $model,

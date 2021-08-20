@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = 'Редактирование';
     <div class="col-md-12">
         <div class="box">
             <div class="box-body">
-                <div class="article-update">
+                <div class="article-update table-responsive">
 
                     <!-- <h1><?= Html::encode($this->title) ?></h1> -->
 

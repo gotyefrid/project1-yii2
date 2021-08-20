@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use kartik\file\FileInput;
+use backend\models\Category;
 use yii\widgets\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
-use frontend\components\MenuCategoryWidget;
 
 mihaildev\elfinder\Assets::noConflict($this);
 /* @var $this yii\web\View */
@@ -16,7 +16,7 @@ mihaildev\elfinder\Assets::noConflict($this);
 <div class="article-form">
 
     <?php $form = ActiveForm::begin([]); ?>
-
+<?php /*
     <div class="form-group field-article-category_id">
         <p><label class="control-label" for="article-category_id">Категория</label></p>
         <select id="article-category_id" class="form-control" name="Article[category_id]" aria-invalid="false">
@@ -27,7 +27,12 @@ mihaildev\elfinder\Assets::noConflict($this);
             ]) ?>
         </select>
     </div>
+   */ ?>
+
+    <?= $form->field($model, 'top')->dropDownList(Category::getCategoryList()) ?>
+
     <?= $form->field($model, 'langArticle')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'fullTitle')->textarea(['rows' => 6]) ?>

@@ -26,6 +26,9 @@ use yii\web\UploadedFile;
  */
 class Article extends ActiveRecord
 {
+    /**
+     * @var UploadedFile
+     */
     public $file;
 
     public function behaviors()
@@ -61,7 +64,7 @@ class Article extends ActiveRecord
             [['fullTitle', 'content'], 'string'],
             [['langArticle', 'author'], 'string', 'max' => 32],
             [['title', 'description', 'keywords', 'imgPreview', 'top'], 'string', 'max' => 255],
-            //[['file'], 'image'],
+            [['file'], 'image', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -82,7 +85,7 @@ class Article extends ActiveRecord
             'description' => 'Description',
             'keywords' => 'Keywords',
             'imgPreview' => 'Картинка превью',
-            'file' => 'Картинка превью',
+            'file' => 'Картинка превью', 
             'top' => 'Позиция на главной',
         ];
     }

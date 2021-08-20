@@ -12,10 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
 
-    <!-- <h1><?= Html::encode($this->title) ?></h1> -->
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); 
-    ?>
     <div class="row">
         <div class="col-md-12">
             <div class="box">
@@ -23,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::a('Создать новую', ['create'], ['class' => 'btn btn-success']) ?>
                 </div>
                 <div class="box-body">
-                    <div class="order-index">
+                    <div class="order-index table-responsive">
                         <?= GridView::widget([
                             'dataProvider' => $dataProvider,
                             'filterModel' => $searchModel,
@@ -52,7 +48,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                 //'content:ntext',
                                 //'description',
                                 //'keywords',
-                                'imgPreview',
+                                [
+                                    'attribute' => 'imgPreview',
+                                    'value' => function ($data) {
+                                        return "/backend/web/{$data->imgPreview}";},
+                                    'format' => ['image', ['style' => 'max-width:100px; max-height:40px']]
+                                ],
                                 'top',
 
                                 ['class' => 'yii\grid\ActionColumn'],
