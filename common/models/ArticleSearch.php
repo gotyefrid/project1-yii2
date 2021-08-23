@@ -47,8 +47,12 @@ class ArticleSearch extends Article
             'query' => $query,
             'pagination' => [
                 'pageSize' => 10,
-                
-            ]
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'time' => SORT_DESC,
+                ]
+            ],
         ]);
 
         $this->load($params);

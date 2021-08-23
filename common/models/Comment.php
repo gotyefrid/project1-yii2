@@ -16,6 +16,7 @@ use yii\web\UploadedFile;
 class Comment extends \yii\db\ActiveRecord
 {
     public $file;
+
     /**
      * {@inheritdoc}
      */
@@ -32,7 +33,7 @@ class Comment extends \yii\db\ActiveRecord
         return [
             [['date'], 'safe'],
             [['article_id', 'name', 'text'], 'required'],
-            [['text'], 'string'],
+            [['text'], 'string', 'max' => 500],
             [['article_id'], 'string', 'max' => 32],
             [['name'], 'string', 'max' => 255],
         ];
@@ -52,21 +53,22 @@ class Comment extends \yii\db\ActiveRecord
             'file' => 'Фото'
         ];
     }
+
     public function getArticle()
     {
         return $this->hasOne(Article::class, ['id' => 'article_id']);
     }
+
     public function beforeSave($insert)
     {
-        if($file = UploadedFile::getInstance($this, 'file')){
-            $dir = 'upload/images/'. date("Y-m-d") . "/";
-            if (!is_dir($dir)){
-                mkdir($dir); //ЕЩЕ НАДО ДОБАВИТЬ ПРАВА НА ЗАПИСЬ!
-            }   
-            $file_name = uniqid() . "_" . $file->baseName . '.' . $file->extension;
-            $this->img = $dir . $file_name;
-            $file->saveAs($this->img);
-        }
-        return parent::beforeSave($insert);
+        if (parent::beforeSave($insert)) {
+            
+            if (empty($this->date)) {
+                $this->date = date('Y-m-d H:i:s', time());
+            }
+
+            return true;
+        } else
+            return false;
     }
 }

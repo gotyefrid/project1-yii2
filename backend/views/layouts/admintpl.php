@@ -250,7 +250,7 @@ desired effect
           </div>
         </div>
 
-        <!-- search form (Optional) -->
+        <!-- search form (Optional) --
         <form action="#" method="get" class="sidebar-form">
           <div class="input-group">
             <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -260,46 +260,16 @@ desired effect
             </span>
           </div>
         </form>
-        <!-- /.search form -->
+        !-- /.search form -->
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">HEADER</li>
+          <li class="header">Меню</li>
           <!-- Optionally, you can add icons to the links -->
           <li class="active"><a href="<?= Url::home() ?>"><i class="fa fa-bar-chart"></i> <span>Общее</span></a></li>
-          <li class="treeview">
-            <a href="#"><i class="fa fa-newspaper-o"></i> <span>Статьи/проклы</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="<?=Url::to(['article/index'])?>">Список статей</a></li>
-              <li><a href="<?=Url::to(['article/create'])?>">Добавить статью</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#"><i class="fa fa-cubes"></i> <span>Категории</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="<?=Url::to(['category/index'])?>">Список категорий</a></li>
-              <li><a href="<?=Url::to(['category/create'])?>">Добавить категорию</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="<?=Url::to(['comment/index'])?>"><i class="fa fa-comments"></i> <span>Комментарии</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="<?=Url::to(['comment/index'])?>">Список комментариев</a></li>
-              <li><a href="<?=Url::to(['comment/create'])?>">Добавить комментарий</a></li>
-            </ul>
-          </li>
+          <li class=""><a href="<?=Url::to(['article/index'])?>"><i class="fa fa-newspaper-o"></i> <span>Статьи/проклы</span></a></li>
+          <li class=""><a href="<?=Url::to(['category/index'])?>"><i class="fa fa-cubes"></i> <span>Категории</span></a></li>
+          <li class=""><a href="<?=Url::to(['comment/index'])?>"><i class="fa fa-comments"></i> <span>Комментарии</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
       </section>

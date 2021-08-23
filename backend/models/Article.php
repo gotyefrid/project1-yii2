@@ -66,6 +66,6 @@ class Article extends ArticleBase
         $imagine = new Imagine();
         $image = $imagine->open($path);
         $image->resize(new Box(600, 450))
-            ->save($path);
+              ->save($path);
     }
 }

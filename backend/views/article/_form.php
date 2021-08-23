@@ -29,7 +29,7 @@ mihaildev\elfinder\Assets::noConflict($this);
     </div>
    */ ?>
 
-    <?= $form->field($model, 'top')->dropDownList(Category::getCategoryList()) ?>
+    <?= $form->field($model, 'category_id')->dropDownList(Category::getCategoryList()) ?>
 
     <?= $form->field($model, 'langArticle')->textInput(['maxlength' => true]) ?>
 

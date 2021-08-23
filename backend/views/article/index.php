@@ -32,8 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
-
-                                'id',
+                                [
+                                    'attribute' => 'id',
+                                    'options' => [
+                                        'style' => 'width: 5%;'
+                                    ],
+                                    'contentOptions' => [
+                                        'style' => 'text-align: center;'
+                                    ],
+    
+                                ],
                                 'time',
                                 [
                                     'attribute' => 'category_id',
@@ -41,7 +49,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                         return isset($data->category_id) ? $data->category->title : 'Без категории';
                                     },
                                 ],
-                                'langArticle',
+                                [
+                                    'attribute' => 'langArticle',
+                                    'options' => [
+                                        'style' => 'width: 5%;'
+                                    ],
+                                    'contentOptions' => [
+                                        'style' => 'text-align: center;'
+                                    ],
+    
+                                ],
                                 'title',
                                 //'fullTitle:ntext',
                                 'author',
