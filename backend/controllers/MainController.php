@@ -7,7 +7,12 @@ use yii\httpclient\Client;
 use common\models\Category;
 
 class MainController extends AppAdminController
-{
+{    
+    /**
+     * actionIndex
+     *
+     * @return void
+     */
     public function actionIndex()
     {
         $articlesCount = Article::find()->count();
@@ -15,7 +20,14 @@ class MainController extends AppAdminController
         $weather = $this->getWeather('Belgorod');
         return $this->render('index', compact('articlesCount', 'categoryCount', 'weather'));
     }
-
+    
+    /**
+     * getWeather
+     *
+     * @param  string $city
+     * @param  string $lang
+     * @return void
+     */
     protected function getWeather($city, $lang = 'ru')
     {
         $url = 'https://api.openweathermap.org/data/2.5/weather';

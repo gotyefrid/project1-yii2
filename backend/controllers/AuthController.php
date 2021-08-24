@@ -12,7 +12,12 @@ use common\models\LoginForm;
 class AuthController extends AppAdminController
 {
   public $layout = 'authtpl';
-  
+    
+  /**
+   * actionLogin
+   *
+   * @return void
+   */
   public function actionLogin()
   {
     if (!Yii::$app->user->isGuest) {
@@ -30,7 +35,12 @@ class AuthController extends AppAdminController
         'model' => $model,
       ]);
     }
-  }
+  }  
+  /**
+   * actionLogout
+   *
+   * @return void
+   */
   public function actionLogout()
   {
     Yii::$app->user->logout();

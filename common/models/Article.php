@@ -2,11 +2,8 @@
 
 namespace common\models;
 
-use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
-use yii\web\UploadedFile;
-use Imagine\Imagick\Imagine;
 use yii\behaviors\TimestampBehavior;
 
 /**

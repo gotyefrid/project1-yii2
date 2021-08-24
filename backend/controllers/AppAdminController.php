@@ -10,7 +10,12 @@ use yii\filters\AccessControl;
  * Site controller
  */
 class AppAdminController extends Controller
-{
+{  
+  /**
+   * behaviors
+   *
+   * @return void
+   */
   public function behaviors()
   {
     return [
