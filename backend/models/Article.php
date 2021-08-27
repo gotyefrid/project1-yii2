@@ -9,15 +9,23 @@ use yii\web\UploadedFile;
 use yii\helpers\FileHelper;
 use Imagine\Imagick\Imagine;
 use common\models\Article as ArticleBase;
-use yii\helpers\VarDumper;
 
+/**
+ * Article - модель таблицы статей для админки
+ */
 class Article extends ArticleBase
 {
     /**
      * @var UploadedFile
      */
     public $file;
-
+    
+    /**
+     * beforeSave
+     *
+     * @param  mixed $insert
+     * @return void
+     */
     public function beforeSave($insert)
     {
         $file = UploadedFile::getInstance($this, 'file');
@@ -48,24 +56,31 @@ class Article extends ArticleBase
 
         return parent::beforeSave($insert);
     }
-
+    
+    /**
+     * deleteCurrentImage - удаление файла текущей картинки (превью) статьи
+     *
+     * @return void
+     */
     private function deleteCurrentImage()
     {
         $imgPath = Yii::getAlias('@backend/web/') . $this->imgPreview;
+        
         if (file_exists($imgPath)) {
             unlink($imgPath);
         }
     }
 
-    /**
-     * Resize uploaded image
-     * @param string $path Full path to image.
+     /**
+     * resizeImg - изменение размера загружаемой картинки
+     *
+     * @param string $path
+     * @return void
      */
     private function resizeImg($path)
     {
         $imagine = new Imagine();
         $image = $imagine->open($path);
-        $image->resize(new Box(600, 450))
-              ->save($path);
+        $image->resize(new Box(600, 450))->save($path);
     }
 }

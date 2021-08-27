@@ -5,8 +5,18 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 
+/**
+ * AppController - общий контроллер фронтенд части
+ */
 class AppController extends Controller
-{
+{  
+  /**
+   * This method is meant to be overwritten to declare external actions for the controller. 
+   * It should return an array, with array keys being action IDs, 
+   * and array values the corresponding action class names or action configuration arrays.
+   *
+   * @return void
+   */
   public function actions()
   {
     return [
@@ -19,7 +29,13 @@ class AppController extends Controller
       ]
     ];
   }
-
+  
+  /**
+   * beforeAction
+   *
+   * @param  mixed $action
+   * @return void
+   */
   public function beforeAction($action)
   {
     $this->view->title = Yii::$app->name;

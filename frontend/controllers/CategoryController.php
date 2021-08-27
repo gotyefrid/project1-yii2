@@ -8,9 +8,17 @@ use common\models\Article;
 use common\models\Category;
 use yii\web\NotFoundHttpException;
 
+/**
+ * CategoryController - обработчик отвечающий за категори
+ */
 class CategoryController extends AppController
 {
-
+  /**
+   * actionView - страница просмотра конкретной категории
+   *
+   * @param  mixed $id
+   * @return void
+   */
   public function actionView($id)
   {
     $category = Category::findOne($id);
@@ -26,5 +34,4 @@ class CategoryController extends AppController
     
     return $this->render('view', compact('articles', 'category', 'pages'));
   }
-
 }

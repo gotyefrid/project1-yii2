@@ -4,6 +4,9 @@ namespace backend\models;
 
 use common\models\Comment as CommentBase;
 
+/**
+ * Comment - модель таблицы комментариев для админки
+ */
 class Comment extends CommentBase
 {
     public function beforeSave($insert)
@@ -15,6 +18,7 @@ class Comment extends CommentBase
             }
 
             return true;
+            
         } else
             return false;
     }

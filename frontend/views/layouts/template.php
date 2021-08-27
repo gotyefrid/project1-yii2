@@ -22,7 +22,7 @@ AppAsset::register($this);
 <body>
     <?php $this->beginBody() ?>
     <header>
-        <div class="bg-191">
+        <div class="bg-191" style="display: none;">
             <div class="container">
                 <div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
                     <ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
@@ -54,7 +54,6 @@ AppAsset::register($this);
             <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
 
             <ul class="main-menu" id="main-menu">
-                <li><a href="02_archive-page.html"><?= Yii::t('common', 'NEWS') ?></a></li>
                 <li class="drop-down"><a href="#"><?= Yii::t('common', 'CATEGORIES') ?><i class="ion-arrow-down-b"></i></a>
                     <ul class="drop-down-menu drop-down-inner">
                         <?= MenuCategoryWidget::widget([
@@ -83,43 +82,13 @@ AppAsset::register($this);
                     <div class="col-sm-4">
                         <div class="mb-30">
                             <a href="#"><img src="/images/logo-white.png"></a>
-                            <p class="mtb-20 color-ccc">Bit coin is an open-source, peer-to-peer, digital decentralized cryptocurrency.
-                                Powered by blockchain technology, its defining characteristic is</p>
+                            <p class="mtb-20 color-ccc">Medical Info</p>
                             <p class="color-ash">Copyright &copy;<script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="ion-heart" aria-hidden="true"></i> by MeL</p>
+                                </script> All rights reserved
                         </div><!-- mb-30 -->
                     </div><!-- col-md-4 -->
 
-                    <div class="col-sm-4">
-                        <div class="mb-30">
-                            <h5 class="color-primary mb-20"><b>MOST POPULAR</b></h5>
-                            <div class="mb-20">
-                                <a class="color-white" href="#"><b>Its Make or Break Time for Bitcoin</b></a>
-                                <h6 class="mt-10">Jan 25, 2018</h6>
-                            </div>
-                            <div class="brdr-ash-1 opacty-2 mr-30"></div>
-                            <div class="mt-20">
-                                <a class="color-white" href="#"><b>Bitcoin's roller coster ride is not over</b></a>
-                                <h6 class="mt-10">Jan 25, 2018</h6>
-                            </div>
-                        </div><!-- mb-30 -->
-                    </div><!-- col-md-4 -->
-
-                    <div class="col-sm-4">
-                        <div class="mb-30">
-                            <h5 class="color-primary mb-20"><b>MOST POPULAR</b></h5>
-                            <div class="mb-20">
-                                <a class="color-white" href="#"><b>Its Make or Break Time for Bitcoin</b></a>
-                                <h6 class="mt-10">Jan 25, 2018</h6>
-                            </div>
-                            <div class="brdr-ash-1 opacty-2 mr-30"></div>
-                            <div class="mt-20">
-                                <a class="color-white" href="#"><b>Bitcoin's roller coster ride is not over</b></a>
-                                <h6 class="mt-10">Jan 25, 2018</h6>
-                            </div>
-                        </div><!-- mb-30 -->
-                    </div><!-- col-md-4 -->
 
                 </div><!-- row -->
             </div><!-- ptb-50 -->

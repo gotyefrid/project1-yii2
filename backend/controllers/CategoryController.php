@@ -108,6 +108,7 @@ class CategoryController extends AppAdminController
     {
         $cats = Category::find()->where(['parent_id' => $id])->count();
         $arts = Article::find()->where(['category_id' => $id])->count();
+
         if ($cats || $arts) {
             Yii::$app->session->setFlash('error', 'Удаление невозможно, на эту категорию ссылаются другие категории или статьи');
         } else {

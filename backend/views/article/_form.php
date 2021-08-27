@@ -16,18 +16,6 @@ mihaildev\elfinder\Assets::noConflict($this);
 <div class="article-form">
 
     <?php $form = ActiveForm::begin([]); ?>
-<?php /*
-    <div class="form-group field-article-category_id">
-        <p><label class="control-label" for="article-category_id">Категория</label></p>
-        <select id="article-category_id" class="form-control" name="Article[category_id]" aria-invalid="false">
-            <?= MenuCategoryWidget::widget([
-                'tpl' => 'selectArticle',
-                'model' => $model,
-                'cacheTime' => 1,
-            ]) ?>
-        </select>
-    </div>
-   */ ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(Category::getCategoryList()) ?>
 

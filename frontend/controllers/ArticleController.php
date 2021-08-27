@@ -4,15 +4,16 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Article;
-use common\models\Comment;
-use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 
 
+/**
+ * ArticleController - обработчик отвечающий за статьи
+ */
 class ArticleController extends AppController
 {
     /**
-     * actionView function
+     * actionView - страница просмотра статьи
      *
      * @param int $id article identification number in the database
      * @return void render content of home page
@@ -38,6 +39,7 @@ class ArticleController extends AppController
         }
 
         $this->setMeta("{$article->title} :: " . Yii::$app->name, $article->keywords, $article->description);
+
         return $this->render('view', compact('article'));
     }
 }

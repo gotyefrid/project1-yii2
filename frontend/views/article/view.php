@@ -76,14 +76,14 @@ use common\components\SidebarPopularArticles;
                 <?php endforeach; ?>
 
                 <h4 class="p-title mt-20"><b>LEAVE A COMMENT</b></h4>
-                
+
                 <form action="" method="POST" class="form-block form-plr-15 form-h-45 form-mb-20 form-brdr-lite-white mb-md-50">
-					<input type="hidden" name="id" value="<?= $article->id ?>">
-					<input type="text" name="name" placeholder="Your Name*:">
-					<textarea class="ptb-10" name="text" placeholder="Your Comment"></textarea>
-                    <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken()?>" />
-					<button class="btn-fill-primary plr-30" rows="4" cols="50" type="submit"><b>LEAVE A COMMENT</b></button>
-				 </form>
+                    <input type="hidden" name="id" value="<?= $article->id ?>">
+                    <input type="text" name="name" placeholder="Your Name*:">
+                    <textarea class="ptb-10" name="text" placeholder="Your Comment"></textarea>
+                    <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
+                    <button class="btn-fill-primary plr-30" rows="4" cols="50" type="submit"><b>LEAVE A COMMENT</b></button>
+                </form>
 
             </div><!-- Content, Also Like, Comments -->
 
@@ -96,29 +96,6 @@ use common\components\SidebarPopularArticles;
                             'tpl' => 'sidebar-popular-menu'
                         ]) ?>
                     </div><!-- mtb-50 -->
-
-                    <div class="mtb-50 pos-relative">
-                        <img src="/images/banner-1-600x450.jpg" alt="">
-                        <div class="abs-tblr bg-layer-7 text-center color-white">
-                            <div class="dplay-tbl">
-                                <div class="dplay-tbl-cell">
-                                    <h4><b>Available for mobile &amp; desktop</b></h4>
-                                    <a class="mt-15 color-primary link-brdr-btm-primary" href="#"><b>Download for free</b></a>
-                                </div><!-- dplay-tbl-cell -->
-                            </div><!-- dplay-tbl -->
-                        </div><!-- abs-tblr -->
-                    </div><!-- mtb-50 -->
-
-                    <div class="mtb-50 mb-md-0">
-                        <h4 class="p-title"><b>NEWSLETTER</b></h4>
-                        <p class="mb-20">Subscribe to our newsletter to get notification about new updates,
-                            information, discount, etc..</p>
-                        <form class="nwsltr-primary-1">
-                            <input type="text" placeholder="Your email">
-                            <button type="submit"><i class="ion-ios-paperplane"></i></button>
-                        </form>
-                    </div><!-- mtb-50 -->
-
                 </div><!--  pl-20 -->
             </div><!-- col-md-3 -->
 

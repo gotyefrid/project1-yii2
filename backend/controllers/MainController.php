@@ -3,13 +3,15 @@
 namespace backend\controllers;
 
 use common\models\Article;
-use yii\httpclient\Client;
 use common\models\Category;
 
+/**
+ * MainController - контроллер главной страницы админки
+ */
 class MainController extends AppAdminController
-{    
+{
     /**
-     * actionIndex
+     * actionIndex - главная страницы админки
      *
      * @return void
      */
@@ -18,15 +20,16 @@ class MainController extends AppAdminController
         $articlesCount = Article::find()->count();
         $categoryCount = Category::find()->count();
         $weather = $this->getWeather('Belgorod');
+
         return $this->render('index', compact('articlesCount', 'categoryCount', 'weather'));
     }
-    
+
     /**
-     * getWeather
+     * getWeather - погода сегодня
      *
      * @param  string $city
      * @param  string $lang
-     * @return void
+     * @return array $data
      */
     protected function getWeather($city, $lang = 'ru')
     {

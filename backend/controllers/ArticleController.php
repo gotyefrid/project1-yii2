@@ -85,6 +85,7 @@ class ArticleController extends AppAdminController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Изменения сохранены!');
             return $this->redirect(['view', 'id' => $model->id]);
